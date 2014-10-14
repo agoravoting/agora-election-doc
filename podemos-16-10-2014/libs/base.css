@@ -1,0 +1,588 @@
+html {
+    background-color: #F6FCF2;
+    color: rgb(39, 53, 53);
+    font: 1.2rem/20px 'Merriweather',Georgia,'Times New Roman',Times,serif;
+    margin: 0px;
+    padding: 0px;
+    border: 0px none;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #F6FCF2;
+}
+
+#renderall > .container {
+    padding: 0;
+}
+
+.cf:after {
+    clear: both;
+}
+.cf:before, .cf:after {
+    content: " ";
+    display: table;
+}
+
+/* header */
+
+#header, .content-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 1.5em auto 0 auto;
+    border-radius: 0.4rem 0.4rem 0 0;
+    background-color: #fff;
+    padding: 0.8em 4% 0.7em;
+}
+
+#header .home-link {
+    display: block;
+    float: left;
+    background: url("../img/logo.png") no-repeat scroll left 50% transparent;
+    min-width: 310px;
+    min-height: 64px;
+    margin-top: 20px;
+}
+
+#header .headlines {
+    display: block;
+    float: left;
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+#header .headlines h2 {
+    color: #624E62;
+    letter-spacing: 0.2rem;
+    display: block;
+    clear: both;
+}
+
+#header .headlines h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 0.9em;
+    color: #294946;
+    line-height: 1em;
+}
+
+/* main */
+
+.content-wrapper {
+    margin-top: 0;
+}
+
+#main {
+    border-radius: 0px 0px 0.4rem 0.4rem;
+}
+
+/* feature-block */
+
+.feature-block {
+    background-color: #612d62;
+    color: white;
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+.feature-block a {
+    color: white;
+}
+
+.shadow-wrapper {
+    margin: 0;
+}
+
+.question-result-name {
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    width: 50%;
+    font-size: 2em;
+    display: block;
+    text-align: right;
+    float: left;
+    padding: 0 1em 0.5em 0;
+    border-right: 1px solid #ccc;
+}
+
+.question-result-name.last {
+    border-right: none;
+    text-align: left;
+    padding-left: 1em;
+}
+
+.question-result-value {
+    color: #016601;
+}
+
+.campaign-excerpt {
+    text-shadow: 0px 1px 1px rgba(39, 53, 53, 0.7);
+    color: white;
+    font-family: 'Merriweather',Georgia,'Times New Roman',Times,serif;
+    font-style: normal;
+    font-weight: 300;
+    text-align: justify;
+    padding: 1em 2em 0 2em;
+    font-size: 1.4em;
+}
+
+.extra-info {
+    padding: 1em 2em;
+}
+
+.extra-info .nav {
+    margin-top: 0.7em;
+}
+
+.extra-info .nav a {
+    font-family: 'Merriweather',Georgia,'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 300;
+    background-color: none;
+}
+
+.extra-info .nav a:hover {
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 3px white;
+}
+
+.btn-dark {
+    color: white;
+    font-weight: 400;
+    box-shadow: 0px 0px 0px 3px rgb(39, 53, 53);
+    background-color: rgb(39, 53, 53);
+    font-size: 1.5em;
+    line-height: 1.6em;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    display: inline-block;
+    padding: 0 0.8em;
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.4rem;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    transition: color 0.3s cubic-bezier(0.25, 0.25, 0.75, 0.75) 0s;
+}
+
+.btn-dark:hover {
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: 0px 0px 0px 3px white;
+}
+
+.btn-light {
+    color: white !important;
+    font-weight: 400;
+    box-shadow: 0px 0px 0px 3px #8C4593;
+    background-color: #8C4593;
+    font-size: 1.5em;
+    line-height: 1.6em;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    display: inline-block;
+    padding: 0 0.8em;
+    border: 0.1rem solid rgba(255, 255, 255, 0.7);
+    border-radius: 0.4rem;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    transition: color 0.3s cubic-bezier(0.25, 0.25, 0.75, 0.75) 0s;
+}
+
+.btn-light:hover {
+    color: #8C4593 !important;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-dark.btn-vote {
+    float: left;
+    display: block;
+    width: 100%;
+    margin: 0.5em auto;
+}
+
+.featured-item {
+    display: block;
+    float: right;
+    width: 45%;
+    margin-right: 4%;
+    margin-top: 1em;
+    color: white;
+    padding: 0.2em 1em 0.2em 0.2em;
+    border-right: 1px solid #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    text-align: right;
+    font-size: 1.4em;
+    line-height: 1.6em;
+}
+
+.featured-item strong {
+    font-weight: normal;
+    display: block;
+}
+
+/* footer */
+
+.footer {
+    width: 90%;
+    display: block;
+    clear: both;
+    color: #ccc;
+    margin: 1em auto 1em auto;
+    text-align: center;
+    padding: 1em;
+}
+
+.footer a {
+    color: rgb(132, 132, 132);
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+}
+
+
+/* candidates list */
+
+.candidates-header {
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    text-transform: uppercase;
+    color: rgb(39, 53, 53);
+    margin-bottom: 1em;
+}
+
+.candidates-header h3 {
+    display: block;
+    float: left;
+    font-size: 1.1em;
+}
+
+.candidates-header h4 {
+    display: block;
+    float: right;
+    font-size: 0.8em;
+}
+
+.candidates-wrapper {
+    padding: 0;
+}
+
+.candidate-item {
+    padding: 0 0 2em 0;
+    font-family: 'Merriweather',Georgia,'Times New Roman',Times,serif;
+    font-weight: 300;
+}
+
+.candidate-item img {
+    padding: 0;
+    border-radius: 0.4rem;
+    display: block;
+    float: left;
+    width: 150px;
+    margin-left: -100%;
+}
+
+.candidate-item h3 {
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+}
+
+
+.candidate-item .info-points {
+    padding: 0;
+    color: #8C4593;
+}
+
+.candidate-item .info-points a {
+    display: block;
+    color: #8C4593;
+    clear: both;
+    width: 100%;
+}
+
+.candidate-item .info-points .col-xs-7 {
+    padding: 0;
+}
+
+.candidate-item p.short-description {
+    text-align: justify;
+}
+
+.candidate-item .description {
+    display: block;
+    float: left;
+    padding-left: 165px;
+    padding-right: 1em;
+    width: 100%;
+}
+
+.candidate-item .description h3 {
+    margin-top: 0;
+}
+
+/* form views */
+
+.section-title {
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 2em;
+    line-height: 3em;
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+}
+
+.section-header {
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+    text-align: justify;
+    margin-top: 1em;
+}
+
+form {
+    font-family: 'Merriweather',Georgia,'Times New Roman', Times, serif;
+}
+
+#page-content {
+    font-family: 'Merriweather',Georgia,'Times New Roman', Times, serif;
+    font-weight: 300;
+    text-align: justify;
+}
+
+form input.form-control {
+    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: #E5E5E5;
+    padding: 0.3em;
+    border: none;
+    border-radius: 0.2rem;
+    box-shadow: none;
+    transition: background-color 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75) 0s;
+}
+
+form input.form-control:focus, form input.form-control:hover {
+    background-color: rgba(229, 229, 229, 0.7);
+}
+
+form .checkbox {
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+}
+
+
+form .textarea-tos, form .form-group textarea {
+    display: block;
+    box-shadow: none;
+    margin-left: 0;
+    border: none;
+    background-color: #EEE;
+    border-radius: 0.2rem;
+    padding: 0.5em;
+    color: #777;
+    font-size: 0.8em;
+    height: 6rem;
+    text-align: justify;
+    overflow-y: auto;
+}
+
+form .form-group textarea {
+    margin-bottom: 1em;
+    font-size: 1em;
+    background-color: #E5E5E5 !important;
+}
+
+form #error-message {
+    color: rgb(169, 68, 66);
+}
+
+#id-browser-warning strong {
+    text-decoration: underline;
+}
+
+/* security center */
+
+#verify-tabs, #verify-vote-form {
+    margin-bottom: 2em;
+}
+
+#verify-result {
+    margin-top: 2em;
+    color: rgb(115, 115, 115);
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+.console-line {
+    overflow-y: auto;
+    max-width: 100%;
+    font-weight: 300;
+    font-family: 'Oswald','Helvetica Neue',Helvetica,sans-serif;
+    background-color: rgb(229, 229, 229);
+    padding: 1em;
+    font-size: 1.3em;
+    border-radius: 0.2rem;
+    word-wrap: break-word;
+}
+
+#verify-tally {
+    margin-top: 2em;
+    color: rgb(115, 115, 115);
+    font-family: 'Merriweather',Georgia,'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-size: 1em;
+}
+
+/* results table */
+
+table.table td.winner {
+    font-weight: bold;
+}
+
+table.table.question-stv td.won {
+    background-color: #5EBC5E;
+    color: white;
+    font-weight: bold;
+}
+
+table.table.question-stv td.already_won {
+    color: #D3D3D3;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #header, .content-wrapper {
+        width: 98%;
+    }
+    #header .headlines {
+        width: 54%;
+    }
+
+    .extra-info .nav li {
+        width: auto;
+        display: block;
+    }
+
+    .featured-item {
+        font-size: 1.1em;
+    }
+
+    .campaign-excerpt {
+        padding: 1em 2em;
+        font-size: 1.3em;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .feature-block {
+        left: -0.45rem;
+    }
+
+    #header .headlines {
+        width: 63%;
+    }
+
+    .extra-info .nav li {
+        width: 1%;
+        display: table-cell;
+    }
+
+    .featured-item {
+        font-size: 1.3em;
+    }
+
+    .shadow-wrapper {
+        padding-right: 0.9rem;
+        padding-left: 0.9rem;
+    }
+
+    .campaign-excerpt {
+        padding: 1em 2em;
+        font-size: 1.4em;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+
+    .featured-item {
+        font-size: 1.4em;
+    }
+
+    #header .headlines {
+        width: 70.5%;
+    }
+
+    .campaign-excerpt {
+        font-size: 1.4em;
+    }
+}
+
+/* fonts */
+@font-face {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Merriweather Light'), local('Merriweather-Light'), url(../fonts/merriweather_normal_300.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Merriweather'), url(../fonts/merriweather_normal_400.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Merriweather Bold'), local('Merriweather-Bold'), url(../fonts/merriweather_normal_700.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Merriweather Light Italic'), local('Merriweather-LightItalic'), url(../fonts/merriweather_light_italic_300.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Merriweather Italic'), local('Merriweather-Italic'), url(../fonts/merriweather_italic_400.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Merriweather Bold Italic'), local('Merriweather-BoldItalic'),url(../fonts/merriweather_bold_italic_700.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Oswald Light'), local('Oswald-Light'), url(../fonts/oswald_300.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(../fonts/oswald_400.woff) format('woff');
+}
