@@ -7,48 +7,57 @@
     <link rel="stylesheet" href="https://vota.podemos.info/libs/base.css" type="text/css" media="all" />
     <script type="text/javascript" src="https://vota.podemos.info/libs/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://vota.podemos.info/libs/bootstrap.min.js"></script>
+    <style>
+    h1, h2 {
+  		line-height: 70px;
+		}
+		h3, h4, h5, h6{
+  		line-height: 40px;
+		}
+		</style>
   </head>
-  <body style="background-color:#ffffff;padding:30pt 180pt 72pt 180pt;text-align: justify;">
-<h1>Seguridad en el voto electrÛnico, aplicada en Podemos</h1>
-<p>La crÌtica m·s fuerte al voto electrÛnico
+  <body style="background-color:#ffffff;padding:30pt 140pt 72pt 140pt;text-align: justify;">
+<h1>Seguridad en el voto electr√≥nico, aplicada en Podemos</h1>
+
+<p>La cr√≠tica m√°s fuerte al voto electr√≥nico
 (tanto remoto como presencial) es su falta de transparencia en
-comparaciÛn con el voto tradicional en urna. Por ejemplo, mientras
-que en el voto en urna es f·cil observar el proceso de elegir una
+comparaci√≥n con el voto tradicional en urna. Por ejemplo, mientras
+que en el voto en urna es f√°cil observar el proceso de elegir una
 papeleta, meterla en un sobre y finalmente introducirla en la urna,
-en el caso del voto electrÛnico este proceso no es visible; no se
-puede observar directamente el proceso inform·tico que implementa el
+en el caso del voto electr√≥nico este proceso no es visible; no se
+puede observar directamente el proceso inform√°tico que implementa el
 acto de votar.</p>
 
-<p>Por esta razÛn la investigaciÛn sobre
+<p>Por esta raz√≥n la investigaci√°on sobre
 sistemas de voto seguro ha propuesto la verificabilidad como
 propiedad fundamental de dichos sistemas, para contrarrestar su a
-priori reducida transparencia. Los sistemas construidos seg˙n este
+priori reducida transparencia. Los sistemas construidos seg√É¬∫n este
 criterio se conocen como sistemas &quot;<i>end-to-end
 verifiable</i>&quot; [1][4], o
 verificables de principio a fin, esto es, desde que un votante
 selecciona sus opciones hasta el resultado final del recuento. Un
 sistema <i>end-to-end verifiable</i>
 permite a los votantes y a terceros verificar que el procedimiento y
-resultado de la votaciÛn son correctos, sin tener que observar todos
+resultado de la votaci√≥n son correctos, sin tener que observar todos
 los detalles internos de hardware y software que intervienen en dicho
 proceso.</p>
 
 <p>
 Debemos resaltar que estos sistemas <i>end-to-end
 verifiable</i> son una <i>clase
-heterogÈnea</i> de sistemas, pudiendo
+heterog√©nea</i> de sistemas, pudiendo
 variar en el grado en el que logran su objetivo, el grado de
 confianza y suposiciones necesarias que requieren, y el software,
-hardware y tÈcnicas criptogr·ficas que utilizan. Agora Voting es un
+hardware y t√©cnicas criptogr√°ficas que utilizan. Agora Voting es un
 proyecto de sistema <i>end-to-end
 verifiable</i>, al seguir las mejores
-pr·cticas reconocidas tanto en la investigaciÛn acadÈmica como en
-votaciones piloto y oficiales llevadas a cabo durante los ˙ltimos
-aÒos.</p>
+pr√°cticas reconocidas tanto en la investigaci√≥n acad√©mica como en
+votaciones piloto y oficiales llevadas a cabo durante los √∫ltimos
+a√±os.</p>
 
 <p>No obstante, Agora Voting no es un sistema
 perfecto, ni es 100% segura ninguna de las votaciones que se lleven a
-cabo con Èl. Tampoco lo es ninguna votaciÛn electrÛnica ni
+cabo con √©l. Tampoco lo es ninguna votaci√≥n electr√≥nica ni
 tradicional en papel. El objetivo de Agora Voting se limita a
 intentar lograr la mayor seguridad posible <i>dados
 los complejos requisitos y limitaciones que dichos procesos traen
@@ -57,30 +66,30 @@ consigo</i>.</p>
 <h2>Verificabilidad</h2>
 
 <p>
-Gran parte de la dificultad que entraÒa el
-voto electrÛnico tiene que ver con que el hecho de que el voto es
-secreto (no confundir con anÛnimo), pero tiene que poder hacerse un
+Gran parte de la dificultad que entra√±a el
+voto electr√≥nico tiene que ver con que el hecho de que el voto es
+secreto (no confundir con an√≥nimo), pero tiene que poder hacerse un
 recuento y dicho recuento tiene que poder verificarse de alguna
 forma. En Agora Voting hemos decidido centrarnos en este tipo de
 sistemas donde la privacidad del voto es importante porque entendemos
 que es lo que demanda gran parte de la sociedad. Es por eso que en
-Agora Voting el voto est· cifrado: de esa forma es secreto, e
-incluso si se pudiera asociar un voto a un votante, no se podrÌa
-conocer su intenciÛn de voto.</p>
+Agora Voting el voto est√° cifrado: de esa forma es secreto, e
+incluso si se pudiera asociar un voto a un votante, no se podr√≠a
+conocer su intenci√≥n de voto.</p>
 
 <p>
-A continuaciÛn exponemos de manera resumida
+A continuaci√≥n exponemos de manera resumida
 las principales propiedades de verificabilidad que aparecen en
-sistemas de voto seguro. DespuÈs repasaremos las propiedades de
-verificabilidad existentes en las ˙ltimas votaciones con Agora
-Voting, asÌ como las  principales limitaciones y ·reas a mejorar.</p>
+sistemas de voto seguro. Despu√©s repasaremos las propiedades de
+verificabilidad existentes en las √∫ltimas votaciones con Agora
+Voting, as√≠ como las  principales limitaciones y √°reas a mejorar.</p>
 
 <h3>Verificabilidad individual</h3>
 
 <p>
 Los votantes pueden comprobar que su voto se
-registrÛ correctamente en la lista votos publicados[1]. Siguiendo la
-terminologÌa en [3], se puede desdoblar dicha propiedad en dos
+registr√≥ correctamente en la lista votos publicados[1]. Siguiendo la
+terminolog√≠a en [3], se puede desdoblar dicha propiedad en dos
 partes:</p>
 
 <ul>
@@ -90,7 +99,7 @@ partes:</p>
 
 <p>
 Los votantes pueden comprobar que el
-localizador de su voto corresponde con su selecciÛn.</p>
+localizador de su voto corresponde con su selecci√≥n.</p>
 
 <ul>
 	<li><p>
@@ -105,9 +114,9 @@ localizador figura en la lista de votos publicados.</p>
 
 <p>
 Cualquiera puede comprobar que el resultado de
-la votaciÛn corresponde a un correcto recuento de los votos
-publicados[1]. Siguiendo la terminologÌa en [3], esta propiedad
-tambiÈn se puede llamar <i>Counted as
+la votaci√≥n corresponde a un correcto recuento de los votos
+publicados[1]. Siguiendo la terminolog√≠a en [3], esta propiedad
+tambi√©n se puede llamar <i>Counted as
 recorded</i> <i>verifiability</i>.</p>
 
 <H3>Eligible verifiability</h3>
@@ -115,11 +124,11 @@ recorded</i> <i>verifiability</i>.</p>
 <p>
 Cualquiera puede comprobar que los votos
 publicados corresponden con votantes autorizados, y que cada votante
-votÛ solo una vez[2].</p>
+vot√≥ solo una vez[2].</p>
 
 <p>
 Aun no siendo una propiedad de verificabilidad,
-incluimos la siguiente propiedad aquÌ dado que es precisamente en el
+incluimos la siguiente propiedad aqu√≠ dado que es precisamente en el
 contexto del voto privado donde aparece la necesidad de construir
 sistemas end-to-end verifiable.</p>
 
@@ -129,7 +138,7 @@ sistemas end-to-end verifiable.</p>
 Es imposible averiguar el sentido del voto de
 un votante[3].</p>
 
-<h2>AplicaciÛn en las ˙ltimas votaciones de Podemos</h2>
+<h2>Aplicaci√≥n en las √∫ltimas votaciones de Podemos</h2>
 
 <p>
 Repasamos brevemente el procedimiento seguido en las votaciones de la
@@ -139,58 +148,58 @@ Asamblea Ciudadana de Podemos, descrito en el overview [9].</p>
 
 <ul>
 	<li><p>
-	El votante accede a la aplicaciÛn mÛvil o web de podemos e
+	El votante accede a la aplicaci√≥n m√≥vil o web de podemos e
 	introduce su clave de acceso</p>
 	<li><p>
 	Una vez validada la clave personal, el votante es redirigido a la
-	cabina de votaciÛn donde podr· votar.</p>
+	cabina de votaci√≥n donde podr√° votar.</p>
 	<li><p>
 	El votante rellenada la papeleta eligiendo las opciones deseadas
-	para cada pregunta de la votaciÛn. El sistema cifra esta papeleta
+	para cada pregunta de la votaci√≥n. El sistema cifra esta papeleta
 	con la clave conjunta de las autoridades, muestra al votante su
-	localizador y envÌa la papeleta para su posterior recuento.</p>
+	localizador y env√≠a la papeleta para su posterior recuento.</p>
 </ul>
 
 <p>
-Una clave conjunta es una ìllaveî que mediante tÈcnicas
-criptogr·ficas se distribuye entre varias partes. Al cifrarse los
+Una clave conjunta es una ‚Äúllave‚Äù que mediante t√©cnicas
+criptogr√°ficas se distribuye entre varias partes. Al cifrarse los
 votos con esta clave es imposible descifrar su contenido a no ser que
 todas las partes intervengan para revelar dicho contenido secreto.
 Las autoridades por tanto juegan un papel similar al de los
-interventores en una votaciÛn tradicional, de manera que no es
+interventores en una votaci√≥n tradicional, de manera que no es
 necesario confiar plenamente en ninguna de ellas de manera
-individual, sino sÛlo en su conjunto.</p>
+individual, sino s√≥lo en su conjunto.</p>
 <p>
 
 </p>
 <p>
 Las autoridades y su clave conjunta son las responsables de
 salvaguardar el secreto del voto en estas votaciones. Ni Podemos, ni
-Agora Voting, ni ninguna autoridad puede por sÌ sola conocer ni
+Agora Voting, ni ninguna autoridad puede por s√≠ sola conocer ni
 desvelar lo que ha votado un votante.</p>
 
 <h3>Recuento</h3>
 
 <p>
-Tras finalizar el periodo de votaciÛn las autoridades proceden a
+Tras finalizar el periodo de votaci√≥n las autoridades proceden a
 hacer el recuento. Cada autoridad:</p>
 
 <ul>
 	<li><p>
-	Realizar· un barajado de todos los votos emitidos (cifrados), y los
-	descifrar· de manera conjunta.</p>
+	Realizar√° un barajado de todos los votos emitidos (cifrados), y los
+	descifrar√° de manera conjunta.</p>
 </ul>
 
 <ul>
 	<li><p>
-	Realizar· el recuento a partir de los votos descifrados, seg˙n el
+	Realizar√° el recuento a partir de los votos descifrados, seg√∫n el
 	algoritmo de recuento utilizado.</p>
 </ul>
 
-<h3>VerificaciÛn</h3>
+<h3>Verificaci√≥n</h3>
 
 <p>
-Una vez terminado el recuento se publicar·n:</p>
+Una vez terminado el recuento se publicar√°n:</p>
 
 <ul>
 	<li><p>
@@ -204,7 +213,7 @@ Una vez terminado el recuento se publicar·n:</p>
 
 <ul>
 	<li><p>
-	Demostraciones matem·ticas de la correspondencia entre los votos
+	Demostraciones matem√°ticas de la correspondencia entre los votos
 	cifrados (1) y descifrados (2).</p>
 </ul>
 
@@ -219,49 +228,49 @@ De esta manera:</p>
 
 <ul>
 	<li><p>
-	Cualquier votante, usando su localizador, podr· certificar que su
+	Cualquier votante, usando su localizador, podr√° certificar que su
 	voto fue debidamente registrado e incluido en el recuento.</p>
 </ul>
 
 <ul>
 	<li><p>
-	Cualquier persona podr· verificar que el conjunto de todos los
+	Cualquier persona podr√° verificar que el conjunto de todos los
 	votos descifrados corresponden con el conjunto de todos los votos
 	emitidos (cifrados).</p>
 </ul>
 
 <ul>
 	<li><p>
-	Cualquier persona podr· verificar que el resultado final del conteo
-	corresponde con una correcta aplicaciÛn del algoritmo de recuento a
+	Cualquier persona podr√° verificar que el resultado final del conteo
+	corresponde con una correcta aplicaci√≥n del algoritmo de recuento a
 	los votos descifrados.</p>
 </ul>
 
 <p>
-Como podemos ver, estas caracterÌsticas que acabamos de listar
+Como podemos ver, estas caracter√≠sticas que acabamos de listar
 corresponden con lo anteriormente descrito acerca de la
-verificabilidad de los sistemas de votaciÛn. Por tanto el sistema
+verificabilidad de los sistemas de votaci√≥n. Por tanto el sistema
 satisface las siguientes propiedades</p>
 
 <ul>
 	<li><p>
 	Verificabilidad individual,  puesto que puede verificarse que un
-	voto est· en la lista de votos publicada. 
+	voto est√° en la lista de votos publicada.
 	</p>
 </ul>
 
 <ul>
 	<li><p>
 	Verificabilidad universal, puesto que puede verificarse que los
-	resultados de la votaciÛn corresponden con un recuento correcto de
+	resultados de la votaci√≥n corresponden con un recuento correcto de
 	los votos cifrados publicados.</p>
 </ul>
 
 <ul>
 	<li><p>
-	Privacidad, puesto que no es posible averiguar lo que votÛ un
+	Privacidad, puesto que no es posible averiguar lo que vot√≥ un
 	votante a no ser que las dos autoridades y el registro de Podemos
-	estÈn corrompidos.</p>
+	est√©n corrompidos.</p>
 </ul>
 
 <p>
@@ -275,9 +284,9 @@ suposiciones adicionales para cumplirse</p>
 </ul>
 
 <p>
-Aunque se cumpla la propiedad ìRecorded as
-cast verifiabilityî, esta propiedad requiere suposiciones
-adicionales para cumplirse. Esto se tratar· en la siguiente secciÛn.</p>
+Aunque se cumpla la propiedad ‚ÄúRecorded as
+cast verifiability‚Äù, esta propiedad requiere suposiciones
+adicionales para cumplirse. Esto se tratar√° en la siguiente secci√≥n.</p>
 
 <ul>
 	<li><p>
@@ -286,68 +295,68 @@ adicionales para cumplirse. Esto se tratar· en la siguiente secciÛn.</p>
 </ul>
 
 <p>
-Esta propiedad no se cumple, se tratar· en la
-siguiente secciÛn.</p>
+Esta propiedad no se cumple, se tratar√° en la
+siguiente secci√≥n.</p>
 
 <h2>Puntos a mejorar</h2>
 
 <p>
 Existen principalmente dos puntos a mejorar en las votaciones que
 hemos realizado con Podemos, que vamos a pasar a detallar. Estos dos
-elementos identifican por donde podrÌan venir las mejoras en un
-futuro, pero en todo caso tienen una explicaciÛn razonable y la
-soluciÛn escogida est· justificada.</p>
+elementos identifican por donde podr√≠an venir las mejoras en un
+futuro, pero en todo caso tienen una explicaci√≥n razonable y la
+soluci√≥n escogida est√° justificada.</p>
 
 <p>
-Hemos tambiÈn de enfatizar que lo que se est· haciendo es una labor
-de innovaciÛn en democracia digital. En Agora Voting nos encargamos
-de traer las ˙ltimas innovaciones tecnolÛgicas en voto electrÛnico
-seguro del ·mbito acadÈmico al mundo real. Por supuesto que innovar
+Hemos tambi√©n de enfatizar que lo que se est√° haciendo es una labor
+de innovaci√≥n en democracia digital. En Agora Voting nos encargamos
+de traer las √∫ltimas innovaciones tecnol√≥gicas en voto electr√≥nico
+seguro del √°mbito acad√©mico al mundo real. Por supuesto que innovar
 conlleva ciertos riesgos, pero creemos que el objetivo de la
 democracia digital bien merece afrontarlos.</p>
 
 <h3>Eligible verifiability</h3>
 
 <p>
-Las mayores crÌticas a las votaciones de
+Las mayores cr√≠ticas a las votaciones de
 Podemos se han centrado en la integridad del censo. Para registrarse
 en dicho censo los ciudadanos deben completar un formulario tras lo
-cual les llega un cÛdigo via SMS que les permite autenticarse en la
-p·gina web. Es desde esta web donde se puede acceder a la cabina de
-votaciÛn de Agora Voting para votar.</p>
+cual les llega un c√≥digo via SMS que les permite autenticarse en la
+p√°gina web. Es desde esta web donde se puede acceder a la cabina de
+votaci√≥n de Agora Voting para votar.</p>
 
 <p>
-Como sistema de votaciÛn independiente, Agora
-Voting no interviene en el proceso de registro ni en la gestiÛn del
-censo de Podemos. Por esta razÛn, la condiciÛn de votante
+Como sistema de votaci√≥n independiente, Agora
+Voting no interviene en el proceso de registro ni en la gesti√≥n del
+censo de Podemos. Por esta raz√≥n, la condici√≥n de votante
 autorizado desde el punto de vista de Agora Voting es simplemente el
-figurar en dicho censo. Claro est·, desde el punto de vista del
-objetivo y legitimidad de la votaciÛn de Podemos las garantÌas
-deben ir m·s all·, y es por esta razÛn por la que muchos critican
-el mecanismo de SMS como insuficiente para lograr las garantÌas
+figurar en dicho censo. Claro est√°, desde el punto de vista del
+objetivo y legitimidad de la votaci√≥n de Podemos las garant√≠as
+deben ir m√°s all√°, y es por esta raz√≥n por la que muchos critican
+el mecanismo de SMS como insuficiente para lograr las garant√≠as
 necesarias.</p>
 
 <p>
 La identidad digital es un problema complejo de
-infraestructura, de difÌcil soluciÛn si no es por mecanismos
-eficaces con intervenciÛn de entidades con muchos recursos,
-normalmente el Estado. En EspaÒa lamentablemente la poblaciÛn no
+infraestructura, de dif√≠cil soluci√≥n si no es por mecanismos
+eficaces con intervenci√≥n de entidades con muchos recursos,
+normalmente el Estado. En Espa√±a lamentablemente la poblaci√≥n no
 tiene acceso efectivo a un sistema de identidad digital
-suficientemente seguro, extendido y f·cil de usar. El DNI
-electrÛnico lamentablemente no est· a la altura, y el certificado
+suficientemente seguro, extendido y f√°cil de usar. El DNI
+electr√≥nico lamentablemente no est√° a la altura, y el certificado
 digital de la FNMT tampoco. Hasta la fecha, este es por tanto un
-problema de difÌcil soluciÛn.</p>
+problema de dif√≠cil soluci√≥n.</p>
 
 <p>
-La ˙nica alternativa es utilizar sistemas con
-menos garantÌas, como por ejemplo la verificaciÛn por SMS de la que
+La √∫nica alternativa es utilizar sistemas con
+menos garant√≠as, como por ejemplo la verificaci√≥n por SMS de la que
 hablamos anteriormente. Desde Podemos han valorado las distintas
-opciones de verificaciÛn de identidad y escogieron buscando un
-equilibrio entre seguridad, coste y facilidad de uso. Adem·s han
+opciones de verificaci√≥n de identidad y escogieron buscando un
+equilibrio entre seguridad, coste y facilidad de uso. Adem√°s han
 implementado mecanismos de control para detectar registros
-irregulares en su censo. Es reseÒable por cierto que quien
-introduzca datos falsos a la hora de afiliarse en un partido polÌtico
-podrÌa estar cometiendo una falta o delito. Con todo, es un sistema
+irregulares en su censo. Es rese√±able por cierto que quien
+introduzca datos falsos a la hora de afiliarse en un partido pol√≠tico
+podr√≠a estar cometiendo una falta o delito. Con todo, es un sistema
 lejos de ser ideal.
 </p>
 
@@ -362,27 +371,27 @@ ellas:
 </ul>
 
 <p>
-ComprobaciÛn estadÌstica de la identidad
-contactando por telÈfono a un subconjunto aleatorio de las personas
+Comprobaci√≥n estad√≠stica de la identidad
+contactando por tel√©fono a un subconjunto aleatorio de las personas
 censadas. Sobre este tipo de procedimientos ya escribimos una serie
 en el blog de Agora Voting [5].  Tiene por supuesto el coste en
 recursos y dinero relativo a realizar todas estas llamadas, nada
-desdeÒable. Adem·s, en la pr·ctica no todo el mundo va a contestar
-al telÈfono, y algunos podrÌan aportar datos errÛneos, lo que
-implica un an·lisis de los resultados m·s complejo.</p>
+desde√±able. Adem√°s, en la pr√°ctica no todo el mundo va a contestar
+al tel√©fono, y algunos podr√≠an aportar datos err√≥neos, lo que
+implica un an√°lisis de los resultados m√°s complejo.</p>
 
 <ul>
 	<li><p>
-	ComprobaciÛn por correo postal</p>
+	Comprobaci√≥n por correo postal</p>
 </ul>
 
 <p>
 Enviar una tarjeta de coordenadas, por ejemplo
-junto con la publicidad electoral, cumplirÌa la doble funciÛn de
+junto con la publicidad electoral, cumplir√≠a la doble funci√≥n de
 comprobar el dato de las direcciones postales del censo y establecer
-un procedimiento adicional de identificaciÛn a la hora de que la
-persona se autentique. Este mÈtodo tiene sin embargo un coste
-adicional por ahora inasumible, al implicar el envÌo de cientos de
+un procedimiento adicional de identificaci√≥n a la hora de que la
+persona se autentique. Este m√©todo tiene sin embargo un coste
+adicional por ahora inasumible, al implicar el env√≠o de cientos de
 miles de cartas postales.</p>
 
 <p>
@@ -396,63 +405,63 @@ anteriores.</p>
 La verificabilidad <i>cast
 as intended</i> permite al votante
 comprobar que su voto y el correspondiente localizador reflejan las
-opciones que efectivamente eligiÛ en la interfaz de usuario. Esta
-verificabilidad es una protecciÛn ante dispositivos o software
-cliente comprometidos o infectados por cÛdigo malicioso. Lograr
-verificabilidad cast as intended es uno de los problemas m·s
-difÌciles del voto electrÛnico, y no es casualidad que se considere
-el dispositivo cliente el eslabÛn m·s dÈbil de estos sistemas.</p>
+opciones que efectivamente eligi√≥ en la interfaz de usuario. Esta
+verificabilidad es una protecci√≥n ante dispositivos o software
+cliente comprometidos o infectados por c√≥digo malicioso. Lograr
+verificabilidad cast as intended es uno de los problemas m√°s
+dif√≠ciles del voto electr√≥nico, y no es casualidad que se considere
+el dispositivo cliente el eslab√≥n m√°s d√©bil de estos sistemas.</p>
 
 <p>
 El proyecto Agora Voting ha estudiado varias
-alternativas para intentar aÒadir verificabilidad <i>cast
-as intended</i>, como est· reflejado en
-varios documentos tÈcnicos[8] de Èsta y anteriores votaciones.
-Estos documentos proponen la implementaciÛn del mÈtodo <i>cast
+alternativas para intentar a√±adir verificabilidad <i>cast
+as intended</i>, como est√° reflejado en
+varios documentos t√©cnicos[8] de √©sta y anteriores votaciones.
+Estos documentos proponen la implementaci√≥n del m√©todo <i>cast
 or audit</i> descrito por Benaloh
-[6][7]. No obstante, dicha caracterÌstica tÈcnica no est·
+[6][7]. No obstante, dicha caracter√≠stica t√©cnica no est√°
 implementada actualmente, y por tanto el sistema utilizado en las
 votaciones de Agora Voting <i>no ofrece
 verificabilidad cast as intended</i>.
-Los recursos y tiempo de los que se disponÌan para estas votaciones
-no permitieron esta implementaciÛn, aunque probablemente se
-incorporar· en la siguiente versiÛn.</p>
+Los recursos y tiempo de los que se dispon√≠an para estas votaciones
+no permitieron esta implementaci√≥n, aunque probablemente se
+incorporar√° en la siguiente versi√≥n.</p>
 
 <p>
 Adicionalmente aprovechamos para aclarar
 algunos malentendidos al respecto que se han manifestado
 recientemente. El problema que <i>cast
 as intended</i> intenta resolver no se
-arregla con auditorÌa del cÛdigo de Agora Voting responsable de
-cifrar y emitir los votos. Dicho cÛdigo javascript es efectivamente
-p˙blicamente auditable por votantes y terceros. Cualquiera puede
+arregla con auditor√≠a del c√≥digo de Agora Voting responsable de
+cifrar y emitir los votos. Dicho c√≥digo javascript es efectivamente
+p√∫blicamente auditable por votantes y terceros. Cualquiera puede
 <i>verificar</i>
-que dicho cÛdigo cifra correctamente las opciones elegidas por el
+que dicho c√≥digo cifra correctamente las opciones elegidas por el
 votante.</p>
 
 <p>
 El problema real deriva de la posibilidad de
 que cualquiera de los elementos que componen el dispositivo cliente
-(incluÌdo el cÛdigo) estÈ comprometido o infectado por agentes
-maliciosos. Tanto es asÌ que, aun ejecutando el cÛdigo javascript
-correcto en el cliente, si existen estos problemas dicha correcciÛn
-es irrelevante. Insistir en la auditabilidad del cÛdigo javascript
+(inclu√≠do el c√≥digo) est√© comprometido o infectado por agentes
+maliciosos. Tanto es as√≠ que, aun ejecutando el c√≥digo javascript
+correcto en el cliente, si existen estos problemas dicha correcci√≥n
+es irrelevante. Insistir en la auditabilidad del c√≥digo javascript
 del cliente (cuando es de hecho auditable) es no entender cual es el
 verdadero problema del dispositivo cliente en cuanto al voto
-electrÛnico. En general, la forma m·s ampliamente aceptada de
-atacar un problema de auditorÌa en voto electrÛnico es proveer de
-formas de verificaciÛn  <i>independientes
+electr√≥nico. En general, la forma m√°s ampliamente aceptada de
+atacar un problema de auditor√≠a en voto electr√≥nico es proveer de
+formas de verificaci√≥n  <i>independientes
 del software </i>a verificar, como es el
 caso del <i>cast or audit</i>.</p>
 <H2 STYLE="line-height: 115%; page-break-before: auto; page-break-after: auto"><A NAME="h.danxtpi66thx"></A>
-M·s informaciÛn</H2>
+M√°s informaci√≥n</H2>
 
 <p>
-Lo que hemos explicado aquÌ es un pequeÒo
-resumen de la documentaciÛn tÈcnica [8], un resumen con
-explicaciones m·s detalladas y en castellano, para hacerlo m·s
+Lo que hemos explicado aqu√≠ es un peque√±o
+resumen de la documentaci√≥n t√©cnica [8], un resumen con
+explicaciones m√°s detalladas y en castellano, para hacerlo m√°s
 asequible para alguien lego en la materia. Para quien quiera tener
-m·s informaciÛn sobre el sistema de votaciÛn, recomendamos los
+m√°s informaci√≥n sobre el sistema de votaci√≥n, recomendamos los
 siguientes enlaces:</p>
 <p>
 <FONT COLOR="#1155cc"><U><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">http</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">://</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">www</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">.</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">securitybydefault</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">.</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">com</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">/2011/06/</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">agora</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">-</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">ciudadana</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">-</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">el</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">-</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">parlamento</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">-</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">virtual</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">.</A><A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">html</A></U></p>
@@ -471,7 +480,7 @@ Election veri?ability in electronic voting protocols. -
 <FONT COLOR="#1155cc"><U><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">http</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">://</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">www</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">.</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">bensmyth</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">.</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">com</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">/</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">files</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">/</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">Smyth</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">10-</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">definition</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">-</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">verifiability</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">.</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">LNCS</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">.</A><A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">pdf</A></U></p>
 <p>
 [2] Peter Y. A. Ryan, David Bismark, James
-Heather, Steve Schneider, and Zhe Xia. PrÍt ‡ Voter: a
+Heather, Steve Schneider, and Zhe Xia. Pr√™t √† Voter: a
 Voter-Verifiable Voting System</p>
 <p>
 <FONT COLOR="#1155cc"><U><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">http</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">://</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">www</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">.</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">computing</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">.</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">surrey</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">.</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">ac</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">.</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">uk</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">/</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">personal</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">/</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">st</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">/</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">J</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">.</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">Heather</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">/</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">research</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">/</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">papers</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">/</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">journal</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">.</A><A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">pdf</A></U></p>
@@ -491,7 +500,7 @@ Voter-Initiated Poll Station Auditing<A HREF="https://www.usenix.org/legacy/even
 </A><FONT COLOR="#1155cc"><U><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">https</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">://</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">www</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">.</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">usenix</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">.</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">org</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">legacy</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">event</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">evt</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">07/</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">tech</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">full</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">_</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">papers</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">benaloh</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">benaloh</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">.</A><A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">pdf</A></U></p>
 <p>
 [7] Ben Adida. Helios: Web-based Open-Audit
-Voting 
+Voting
 <FONT COLOR="#1155cc"><U><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">https</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">://</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">www</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">.</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">usenix</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">.</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">org</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">legacy</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">event</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">sec</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">08/</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">tech</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">full</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">_</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">papers</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">adida</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">/</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">adida</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">.</A><A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">pdf</A></U></p>
 <p>
 [8] Podemos tech overview<A HREF="https://vota.podemos.info/doc/tech_overview_1020.pdf">
