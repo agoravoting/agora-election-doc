@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>Howto: Recuento verificable de la Votación de Resoluciones de Podemos</title>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap-theme.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://vota.podemos.info/libs/base.css" type="text/css" media="all" />
+<script type="text/javascript" src="https://vota.podemos.info/libs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://vota.podemos.info/libs/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#ffffff;padding:30pt 72pt 72pt 72pt">
+
+<p><a href="https://agoravoting.com"><img src="https://vota.podemos.info/img/logo_agora.png" alt="Logo Agora Voting" /></a></p>
+
+<h1>Howto: Recuento verificable de la Votación de Resoluciones de Podemos</h1>
+
+<p>La Votación de Resoluciones de Podemos obtuvo unos <a href="http://asambleaciudadana.podemos.info/resoluciones">resultados que ya fueron publicados en su web</a>. No obstante, desde Agora Voting teníamos pendiente publicar el fichero del recuento, de forma que cada votante pueda verificar que su papeleta de voto está incluída en el recuento, y que también permite a partir de esos votos verificar matemáticamente el resultado del recuento.</p><p>
+
+Para realizar dicha verificación es necesario tener suficientes conocimientos técnicos. Si no los tienes, recomendamos que realices este proceso de verificación con la ayuda de alguien que si los tenga. </p><p>
+
+Lo primero que necesitas para verificar el recuento es descargarte el software de “agora-verifier”. Este es el software que realiza las verificaciones pertinentes sobre una votación realizada con Agora Voting. Puedes descargarte agora-verifier ya <a href="https://vota.podemos.info/doc/1016/agora-verifier">empaquetado y listo para usar de aquí</a> (sha256sum: 68f2fc3378b4cbd61d690ac3b380d420481f794275809ac91748bc13a2a1c119), o bien puedes <a href="https://github.com/agoravoting/agora-verifier">instalártelo manualmente a partir del código fuente, siguiendo las instrucciones del proyecto en github</a>.</p><p>
+
+agora-verifier ha sido probado en Linux, y requiere de:</p>
+<ul>
+<li>Sistema operativo linux de 64 bits.</li>
+<li>Java v7 o superior instalado.</li>
+<li>uuencode (“sudo apt-get install sharutils” en Debian/Ubuntu).</li>
+</ul>
+
+<p>El fichero que contiene todos los datos de la votación, que nosotros solemos llamar <a href="https://vota.podemos.info/doc/1016/tally.tar.gz">“tally.tar.gz” está disponible aquí</a> (sha256sum: 8644c30381084cee980d6e83e8044ee226550a5f4d71ad6316a631ff4d86a76a). Para verificar el recuento, puedes simplemente ejecutar:</p>
+
+<code>
+ ./agora-verifier tally.tar.gz
+</code>
+<br/>
+<p>Esa ejecución va a tardar un buen rato, del orden de 1 hora y 20 minutos en un procesador Core i7. El output de dicha ejecución será algo parecido a esto:</p>
+
+<code>
+./agora-verifier tally.tar.gz<br/><br/>
+* extracted to /tmp/tmpfnd9qltally<br/>
+# Results ##########################################<br/>
+total number of votes (including blank/invalid votes): 38279<br/>
+Question #1: Vota 5 resoluciones<br/>
+
+number of options available: 97<br/>
+
+Raw winning options (unordered!):<br/>
+ - Defender la educación pública: nuestro derecho y no su negocio<br/>
+ - Por el derecho a la salud: sanidad pública de tod@s para tod@s<br/>
+ - Ganar el derecho a la vivienda y acabar con la impunidad financiera<br/>
+ - Medidas urgentes anti-corrupción - Carlos Jiménez Villarejo<br/>
+ - Auditoría y reestructuración de la deuda: una propuesta para Podemos<br/>
+####################################################<br/>
+
+* verifying proofs of knowledge of the plaintexts...<br/>
+ * verified 1000 votes (0 invalid)..<br/>
+* verified 2000 votes (0 invalid)..<br/>
+* verified 3000 votes (0 invalid)..<br/>
+* verified 4000 votes (0 invalid)..<br/>
+* verified 5000 votes (0 invalid)..<br/>
+* verified 6000 votes (0 invalid)..<br/>
+* verified 7000 votes (1 invalid)..<br/>
+* verified 8000 votes (1 invalid)..<br/>
+* verified 9000 votes (1 invalid)..<br/>
+* verified 10000 votes (1 invalid)..<br/>
+* verified 11000 votes (1 invalid)..<br/>
+* verified 12000 votes (1 invalid)..<br/>
+* verified 13000 votes (1 invalid)..<br/>
+* verified 14000 votes (1 invalid)..<br/>
+* verified 15000 votes (1 invalid)..<br/>
+* verified 16000 votes (1 invalid)..<br/>
+* verified 17000 votes (1 invalid)..<br/>
+* verified 18000 votes (1 invalid)..<br/>
+* verified 19000 votes (1 invalid)..<br/>
+* verified 20000 votes (1 invalid)..<br/>
+* verified 21000 votes (1 invalid)..<br/>
+* verified 22000 votes (1 invalid)..<br/>
+* verified 23000 votes (1 invalid)..<br/>
+* verified 24000 votes (1 invalid)..<br/>
+* verified 25000 votes (1 invalid)..<br/>
+* verified 26000 votes (1 invalid)..<br/>
+* verified 27000 votes (1 invalid)..<br/>
+* verified 28000 votes (1 invalid)..<br/>
+* verified 29000 votes (1 invalid)..<br/>
+* verified 30000 votes (2 invalid)..<br/>
+* verified 31000 votes (2 invalid)..<br/>
+* verified 32000 votes (2 invalid)..<br/>
+* verified 33000 votes (2 invalid)..<br/>
+* verified 34000 votes (2 invalid)..<br/>
+* verified 35000 votes (2 invalid)..<br/>
+* verified 36000 votes (2 invalid)..<br/>
+* verified 37000 votes (2 invalid)..<br/>
+* verified 38000 votes (2 invalid)..<br/>
+* ..finished. Verified 38279 votes (2 invalid)<br/>
+* proofs of knowledge of plaintexts OK (2 invalid)<br/>
+* tally verification OK<br/>
+* running './pverify.sh .rnd /tmp/tmpfnd9qltally'<br/>
+* initializing random source..Successfully initialized random source!<br/>
+* begin proof verification on '/tmp/tmpfnd9qltally'<br/>
+* processing /tmp/tmpfnd9qltally/0-630224d9-8f98-4fb9-8bb4-ac35be94d118..<br/>
+*<br/>
+* ============ Read and derive common values. ====================<br/>
+* 141023 15:40:29 Read joint public key... * done.<br/>
+* 141023 15:40:31 Read individual El Gamal public keys... * done.<br/>
+* 141023 15:40:31 Verify relation between public keys... * done.<br/>
+* 141023 15:40:31 Read input ciphertexts... * done.<br/>
+* 141023 15:41:01 Derive independent generators... * done.<br/>
+*<br/>
+* ============ Verify shuffle of Party 1. ========================<br/>
+* 141023 15:41:03 Read output of Party 1... * done.<br/>
+* 141023 15:41:32 Verify proof of shuffle... * done.<br/>
+*<br/>
+* ============ Verify shuffle of Party 2. ========================<br/>
+* 141023 15:57:57 Read output of Party 2... * done.<br/>
+* 141023 15:58:26 Verify proof of shuffle... * done.<br/>
+*<br/>
+* ============ Verify decryption of Party 1. =====================<br/>
+* 141023 16:14:47 Read decryption factors... * done.<br/>
+* 141023 16:15:02 Verify decryption proof... * done.<br/>
+*<br/>
+* ============ Verify decryption of Party 2. =====================<br/>
+* 141023 16:16:45 Read decryption factors... * done.<br/>
+* 141023 16:16:59 Verify decryption proof... * done.<br/>
+*<br/>
+* ============ Verify finalization. ==============================<br/>
+* 141023 16:18:38 Decrypt using verified decryption factors... * done.<br/>
+* 141023 16:18:56 Read and verify plaintexts... * done.<br/>
+*<br/>
+* Verification completed SUCCESSFULLY after 0h 38m 31s.<br/>
+* verification is OK<br/>
+* processing question_dir 0-630224d9-8f98-4fb9-8bb4-ac35be94d118<br/>
+* running '/tmp/tmp.7lvO8YW3Ka/agora-verifier/vmnc.sh .rnd -plain -outi json proofs/PlaintextElements.bt plaintexts_json2'<br/>
+* initializing random source..Successfully initialized random source!<br/>
+* calling mixnet interface with vmnc .rnd  -plain -outi json proofs/PlaintextElements.bt plaintexts_json2..<br/>
+* vmnc call succeeded<br/>
+* plaintexts_json verification OK<br/>
+* running '/tmp/tmp.7lvO8YW3Ka/agora-verifier/vmnc.sh .rnd -ciphs -ini json ciphertexts_json ciphertexts_raw'<br/>
+* ciphertexts_json verification OK<br/>
+</code>
+<p></p>
+<p>Lo más importante es que el comando termine diciendo “OK”. Si existen algún fallo, el comando no termina diciendo OK sino FAILED. A continuación listamos los pasos del proceso de verificación. Por razones técnicas el comando no sigue exactamente el mismo orden que mostramos aqui a efectos de mayor claridad:</p>
+<ol>
+<li>Extraer el fichero en un directorio que imprime por pantalla</li><li>
+Mostrar en pantalla someramente los datos más importantes del recuento: el numero total de votos, y la lista de opciones ganadoras (NO ordenadas).</li><li>
+Leer el fichero result_json correspondiente a los resultados del recuento mostrados en el paso anterior y hacerle un hash.</li><li>
+Leer la claves públicas con la que se cifraron los votos (fichero pubkeys_json)</li><li>
+Leer los votos del fichero ciphertexts_json y comprobar que son válidas las pruebas matemáticas de Cero Conocimiento (ZKP) que demuestran que el que emitió el voto cifrado conocía el contenido en texto plano de dicho voto. </li><li>
+El siguiente paso es verificar una serie de elementos de cada pregunta. Cada pregunta se cifra por separado, y por tanto se hace el recuento y algunas verificaciones del mismo por separado:<ol><li>
+Verificar que a partir de los votos del fichero “ciphertexts_json” se obtienen los votos cifrados en formato raw. Se hace un hash de ambos ficheros y se comprueba si es el mismo. Si esta comprobacion falla, el script imprime “ciphertexts_json verification FAILED”.</li><li>
+Leer las pruebas ZKP que matemáticamente demuestran que a partir de los votos cifrados de esta pregunta, el resultado son los votos descifrados en formato raw . Si estas pruebas fallan, el script imprime “verification FAILED”.</li><li>
+Verificar que a partir de los votos descifrados en formato raw, el resultado es el fichero de votos descifrados “plaintexts_json”. Se hace un hash de ambos ficheros y se comprueba si es el mismo. Si esta comprobacion falla, el script imprime “plaintexts_json verification FAILED”.</li>
+</ol><li>
+Leer los ficheros que contienen los votos descifrados, y calcular el resultado de la votación a partir de dichos votos descifrados.</li><li>
+Comparar dicho hash con el hash del result_json que obtuvimos en el paso 3. Si la comparación falla, el script devuelve un “tally verification FAILED”.</li>
+</p>
+<p>Como podéis ver, <strong>se comprueba matemática e unívocamente</strong> que a partir de los votos cifrados, el resultado de la votación es el mencionado. Pero puede surgir una duda ¿de donde salen los votos? ¿y está mi voto ahí incluído?</p><p>
+
+En primer lugar, hemos de decir que el sistema de votación implica que hay que tener una cierta confianza en las organizaciones que están realizando la votación, en particular se asumo que se confía que no han metido votos de más. Esto es una limitación (reflejada en el <a href="https://vota.podemos.info/doc/tech_overview_1016.pdf">tecnical overview</a>, apartado 6.3.3) que deriva del hecho de que los votos no están firmados digitalmente, y no lo están debido a que muy poca gente tiene un certificado digital que pueda utilizar fácilmente en una votación de estas características en España. Es por tanto una limitación externa a Podemos y Agora Voting. En otros países europeos como Estonia por ejemplo, <a href="http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics">el eID parece que sí que tiene un amplio uso y por tanto el 24,3% de los votantes votaron por Internet en las elecciones de 2011</a>.</p><p>
+
+No obstante, si qué se puede verificar matemáticamente que tu voto, el voto que tú emitiste, está incluído en esa lista de votos cifrados, esa lista que hemos verificado que genera el resultado correcto. Para verificar tu voto, debes de haberte guardado el localizador del voto, que no es más que un hash del voto. </p><p>
+
+Este localizador aparece en pantalla al terminar el proceso de voto en la cabina de votación. Si no tienes tu localizador, apréndete que tienes que guardártelo si quieres poder realizar esta comprobación. </p><p>
+
+Por cierto que es posible que la comprobación del hash de tu voto no esté incluido, si has cambiado tu voto y no estás comprobando el último voto que emitiste, que es el que resulta computable y válido.</p><p>
+
+Para comprobar que tu localizador está incluído en el recuento, simplemente has de ejecutar el mismo comando que antes, agregando como nuevo parámetro el localizador de tu voto:</p>
+
+<code>
+./agora-verifier tally.tar.gz [localizador]
+</code>
+</body>
+</html>

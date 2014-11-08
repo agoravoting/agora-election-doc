@@ -1,0 +1,76 @@
+<html><head><title>overview.html</title>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap-theme.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://vota.podemos.info/libs/base.css" type="text/css" media="all" />
+<script type="text/javascript" src="https://vota.podemos.info/libs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://vota.podemos.info/libs/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#ffffff;padding:30pt 72pt 72pt 72pt">
+<p><a href="https://agoravoting.com"><img src="https://vota.podemos.info/img/logo_agora.png" alt="Logo Agora Voting" /></a></p>
+<h1>Esquema General</h1>
+
+<p><strong>Nota:</strong> Puede encontrarse mas información en los siguientes enlaces</p>
+<ul>
+<li><p><a href="" target="_blank">Seguridad del voto electrónico en las votaciones de Podemos</a></p></li>
+<li><p><a href="https://vota.podemos.info/doc/1110/protocolo.pdf" target="_blank">Protocolo de actuación</a></p></li>
+<li><p><a href="https://vota.podemos.info/doc/1110/tech_overview.html" target="_blank">technical overview (documento mas técnico, en inglés)</a></p></li>
+<li><p><a href="" target="_blank">Verificación del recuento (se publicará una vez terminada la votación)</a></p></li>
+</ul>
+
+<h2>Proceso de votación</h2>
+<p>
+El proceso de votación consta de tres pasos:
+</p>
+<ol>
+<li><strong>Acceso a aplicación movil o web de Podemos</strong><p>
+El votante accede a la aplicación movil o web de podemos e introduce su clave de acceso.</p></li>
+<li><strong>Acceso a cabina de votación</strong><p>
+Desde la aplicación o web de Podemos, el votante pincha en un botón que le redirige a la cabina de votación.</p></li>
+<li><strong>Votación</strong><p>
+Una vez validada la clave personal, el votante es redirigido a la cabina de votación. En este momento el votante ha pasado la autenticación y podrá votar.</p>
+<ol><li>
+Rellena la papeleta eligiendo las opciones deseadas para cada pregunta de la votación.</li>
+<li>
+Tras rellenarla, revisa la papeleta pudiendo hacer modificaciones.</li>
+<li>
+Una vez conforme, el sistema cifra y envía la papeleta para su posterior recuento.</li>
+</ol></li></ol>
+
+<h2>Recuento</h2>
+
+<img alt="Esquema de recuento" src="https://vota.podemos.info/img/image01.png" />
+<p>Tras finalizar el periodo de votación las autoridades proceden a hacer el recuento. Para ello se pondrán de acuerdo para ejecutar, de manera sincronizada, un proceso informático que:</p>
+<ol>
+<li>Realizará un barajado de todos los votos emitidos (cifrados), y los descifrará de manera conjunta.</li>
+<img alt="Rebarajado" src="https://vota.podemos.info/img/image04.png" />
+<li>Realizará el recuento a partir de los votos descifrados, según el algoritmo de recuento
+utilizado.</li>
+<img alt="Recuento" src="https://vota.podemos.info/img/image02.png" />
+</ol>
+
+<h2>Verificación</h2>
+<img alt="Verificación" src="https://vota.podemos.info/img/image00.png" />
+
+<p>Una vez terminado el recuento se publicará toda la información relativa a la votación necesaria para su validación, tanto por parte de los votantes, como por terceros. Para ellos se publicarán:</p>
+<ol>
+<li>Los votos emitidos cifrados, junto con sus localizadores.</li>
+
+<li>Los votos descifrados anonimizados.</li>
+
+<li>Demostraciones matemáticas de la correspondencia entre los votos cifrados (1) y descifrados (2).</li>
+
+<li>Los totales resultantes de aplicar el algoritmo de recuento (plurality y plurality at large) a los votos descifrados.</li>
+</ol>
+<p>De esta manera:</p>
+<ol>
+<li>Cualquier votante, usando su localizador, podrá certificar que su voto fue debidamente registrado e incluido en el recuento.</li>
+
+<li>Cualquier persona podrá verificar que el conjunto de todos los votos descifrados corresponden con el conjunto de todos los votos emitidos (cifrados).</li>
+
+<li>Cualquier persona podrá verificar que el resultado final del conteo corresponde con una correcta aplicación del algoritmo de recuento a los votos descifrados.</li>
+</ol><p>
+Para facilitar estos tres pasos se proporcionará, mediante descarga, un programa que realiza estas verificaciones de manera automática. El código de este programa será públicamente accesible pudiéndose también auditar.</p>
+
+
+</body></html>
