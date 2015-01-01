@@ -1,0 +1,502 @@
+<html>
+  <head>
+    <title>Seguridad</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap-theme.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://vota.podemos.info/libs/base.css" type="text/css" media="all" />
+    <script type="text/javascript" src="https://vota.podemos.info/libs/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://vota.podemos.info/libs/bootstrap.min.js"></script>
+    <style>
+    h1, h2 {
+  		line-height: 70px;
+		}
+		h3, h4, h5, h6{
+  		line-height: 40px;
+		}
+		</style>
+  </head>
+  <body style="background-color:#ffffff;padding:30pt 140pt 72pt 140pt;text-align: justify;">
+<h1>Seguridad en el voto electrónico, aplicada en Podemos</h1>
+
+<p>La crítica más fuerte al voto electrónico
+(tanto remoto como presencial) es su falta de transparencia en
+comparación con el voto tradicional en urna. Por ejemplo, mientras
+que en el voto en urna es fácil observar el proceso de elegir una
+papeleta, meterla en un sobre y finalmente introducirla en la urna,
+en el caso del voto electrónico este proceso no es visible; no se
+puede observar directamente el proceso informático que implementa el
+acto de votar.</p>
+
+<p>Por esta razón la investigaciáon sobre
+sistemas de voto seguro ha propuesto la verificabilidad como
+propiedad fundamental de dichos sistemas, para contrarrestar su a
+priori reducida transparencia. Los sistemas construidos según este
+criterio se conocen como sistemas &quot;<i>end-to-end
+verifiable</i>&quot; [1][4], o
+verificables de principio a fin, esto es, desde que un votante
+selecciona sus opciones hasta el resultado final del recuento. Un
+sistema <i>end-to-end verifiable</i>
+permite a los votantes y a terceros verificar que el procedimiento y
+resultado de la votación son correctos, sin tener que observar todos
+los detalles internos de hardware y software que intervienen en dicho
+proceso.</p>
+
+<p>
+Debemos resaltar que estos sistemas <i>end-to-end
+verifiable</i> son una <i>clase
+heterogénea</i> de sistemas, pudiendo
+variar en el grado en el que logran su objetivo, el grado de
+confianza y suposiciones necesarias que requieren, y el software,
+hardware y técnicas criptográficas que utilizan. Agora Voting es un
+proyecto de sistema <i>end-to-end
+verifiable</i>, al seguir las mejores
+prácticas reconocidas tanto en la investigación académica como en
+votaciones piloto y oficiales llevadas a cabo durante los últimos
+años.</p>
+
+<p>No obstante, Agora Voting no es un sistema
+perfecto, ni es 100% segura ninguna de las votaciones que se lleven a
+cabo con él. Tampoco lo es ninguna votación electrónica ni
+tradicional en papel. El objetivo de Agora Voting se limita a
+intentar lograr la mayor seguridad posible <i>dados
+los complejos requisitos y limitaciones que dichos procesos traen
+consigo</i>.</p>
+
+<h2>Verificabilidad</h2>
+
+<p>
+Gran parte de la dificultad que entraña el
+voto electrónico tiene que ver con que el hecho de que el voto es
+secreto (no confundir con anónimo), pero tiene que poder hacerse un
+recuento y dicho recuento tiene que poder verificarse de alguna
+forma. En Agora Voting hemos decidido centrarnos en este tipo de
+sistemas donde la privacidad del voto es importante porque entendemos
+que es lo que demanda gran parte de la sociedad. Es por eso que en
+Agora Voting el voto está cifrado: de esa forma es secreto, e
+incluso si se pudiera asociar un voto a un votante, no se podría
+conocer su intención de voto.</p>
+
+<p>
+A continuación exponemos de manera resumida
+las principales propiedades de verificabilidad que aparecen en
+sistemas de voto seguro. Después repasaremos las propiedades de
+verificabilidad existentes en las últimas votaciones con Agora
+Voting, así como las  principales limitaciones y áreas a mejorar.</p>
+
+<h3>Verificabilidad individual</h3>
+
+<p>
+Los votantes pueden comprobar que su voto se
+registró correctamente en la lista votos publicados[1]. Siguiendo la
+terminología en [3], se puede desdoblar dicha propiedad en dos
+partes:</p>
+
+<ul>
+	<li><p>
+	Cast as intended verifiability</p>
+</ul>
+
+<p>
+Los votantes pueden comprobar que el
+localizador de su voto corresponde con su selección.</p>
+
+<ul>
+	<li><p>
+	Recorded as cast verifiability</p>
+</ul>
+
+<p>
+Los votantes pueden comprobar que su
+localizador figura en la lista de votos publicados.</p>
+
+<h3>Verificabilidad universal</h3>
+
+<p>
+Cualquiera puede comprobar que el resultado de
+la votación corresponde a un correcto recuento de los votos
+publicados[1]. Siguiendo la terminología en [3], esta propiedad
+también se puede llamar <i>Counted as
+recorded</i> <i>verifiability</i>.</p>
+
+<H3>Eligible verifiability</h3>
+
+<p>
+Cualquiera puede comprobar que los votos
+publicados corresponden con votantes autorizados, y que cada votante
+votó solo una vez[2].</p>
+
+<p>
+Aun no siendo una propiedad de verificabilidad,
+incluimos la siguiente propiedad aquí dado que es precisamente en el
+contexto del voto privado donde aparece la necesidad de construir
+sistemas end-to-end verifiable.</p>
+
+<h3>Privacidad (vote secrecy[2])</h3>
+
+<p>
+Es imposible averiguar el sentido del voto de
+un votante[3].</p>
+
+<h2>Aplicación en las últimas votaciones de Podemos</h2>
+
+<p>
+Repasamos brevemente el procedimiento seguido en las votaciones de la
+Asamblea Ciudadana de Podemos, descrito en el overview [9].</p>
+
+<h3>Votacion</h3>
+
+<ul>
+	<li><p>
+	El votante accede a la aplicación móvil o web de podemos e
+	introduce su clave de acceso</p>
+	<li><p>
+	Una vez validada la clave personal, el votante es redirigido a la
+	cabina de votación donde podrá votar.</p>
+	<li><p>
+	El votante rellenada la papeleta eligiendo las opciones deseadas
+	para cada pregunta de la votación. El sistema cifra esta papeleta
+	con la clave conjunta de las autoridades, muestra al votante su
+	localizador y envía la papeleta para su posterior recuento.</p>
+</ul>
+
+<p>
+Una clave conjunta es una “llave” que mediante técnicas
+criptográficas se distribuye entre varias partes. Al cifrarse los
+votos con esta clave es imposible descifrar su contenido a no ser que
+todas las partes intervengan para revelar dicho contenido secreto.
+Las autoridades por tanto juegan un papel similar al de los
+interventores en una votación tradicional, de manera que no es
+necesario confiar plenamente en ninguna de ellas de manera
+individual, sino sólo en su conjunto.</p>
+<p>
+
+</p>
+<p>
+Las autoridades y su clave conjunta son las responsables de
+salvaguardar el secreto del voto en estas votaciones. Ni Podemos, ni
+Agora Voting, ni ninguna autoridad puede por sí sola conocer ni
+desvelar lo que ha votado un votante.</p>
+
+<h3>Recuento</h3>
+
+<p>
+Tras finalizar el periodo de votación las autoridades proceden a
+hacer el recuento. Cada autoridad:</p>
+
+<ul>
+	<li><p>
+	Realizará un barajado de todos los votos emitidos (cifrados), y los
+	descifrará de manera conjunta.</p>
+</ul>
+
+<ul>
+	<li><p>
+	Realizará el recuento a partir de los votos descifrados, según el
+	algoritmo de recuento utilizado.</p>
+</ul>
+
+<h3>Verificación</h3>
+
+<p>
+Una vez terminado el recuento se publicarán:</p>
+
+<ul>
+	<li><p>
+	Los votos emitidos cifrados, junto con sus localizadores.</p>
+</ul>
+
+<ul>
+	<li><p>
+	Los votos descifrados anonimizados</p>
+</ul>
+
+<ul>
+	<li><p>
+	Demostraciones matemáticas de la correspondencia entre los votos
+	cifrados (1) y descifrados (2).</p>
+</ul>
+
+<ul>
+	<li><p>
+	Los totales resultantes de aplicar el algoritmo de recuento
+	(plurality y plurality at large) a los votos descifrados.</p>
+</ul>
+
+<p>
+De esta manera:</p>
+
+<ul>
+	<li><p>
+	Cualquier votante, usando su localizador, podrá certificar que su
+	voto fue debidamente registrado e incluido en el recuento.</p>
+</ul>
+
+<ul>
+	<li><p>
+	Cualquier persona podrá verificar que el conjunto de todos los
+	votos descifrados corresponden con el conjunto de todos los votos
+	emitidos (cifrados).</p>
+</ul>
+
+<ul>
+	<li><p>
+	Cualquier persona podrá verificar que el resultado final del conteo
+	corresponde con una correcta aplicación del algoritmo de recuento a
+	los votos descifrados.</p>
+</ul>
+
+<p>
+Como podemos ver, estas características que acabamos de listar
+corresponden con lo anteriormente descrito acerca de la
+verificabilidad de los sistemas de votación. Por tanto el sistema
+satisface las siguientes propiedades</p>
+
+<ul>
+	<li><p>
+	Verificabilidad individual,  puesto que puede verificarse que un
+	voto está en la lista de votos publicada.
+	</p>
+</ul>
+
+<ul>
+	<li><p>
+	Verificabilidad universal, puesto que puede verificarse que los
+	resultados de la votación corresponden con un recuento correcto de
+	los votos cifrados publicados.</p>
+</ul>
+
+<ul>
+	<li><p>
+	Privacidad, puesto que no es posible averiguar lo que votó un
+	votante a no ser que las dos autoridades y el registro de Podemos
+	estén corrompidos.</p>
+</ul>
+
+<p>
+El sistema no satisface las siguientes propiedades, requiriendo
+suposiciones adicionales para cumplirse</p>
+
+<ul>
+	<li><p>
+	Cast as intended verifiability</p>
+	</li>
+</ul>
+
+<p>
+Aunque se cumpla la propiedad “Recorded as
+cast verifiability”, esta propiedad requiere suposiciones
+adicionales para cumplirse. Esto se tratará en la siguiente sección.</p>
+
+<ul>
+	<li><p>
+	Eligible verifiability</p>
+	</li>
+</ul>
+
+<p>
+Esta propiedad no se cumple, se tratará en la
+siguiente sección.</p>
+
+<h2>Mejoras recientes</h2>
+
+<h3>Cast as intended</h3>
+
+<p>
+La verificabilidad <i>cast
+as intended</i> permite al votante
+comprobar que su voto y el correspondiente localizador reflejan las
+opciones que efectivamente eligió en la interfaz de usuario. Esta
+verificabilidad es una protección ante dispositivos o software
+cliente comprometidos o infectados por código malicioso. Lograr
+verificabilidad cast as intended es uno de los problemas más
+difíciles del voto electrónico, y no es casualidad que se considere
+el dispositivo cliente el eslabón más débil de estos sistemas.</p>
+
+<p>
+El proyecto Agora Voting ha estudiado varias
+alternativas para añadir verificabilidad <i>cast
+as intended</i>, como está reflejado en
+varios documentos técnicos[8] de ésta y anteriores votaciones.
+Estos documentos proponen la implementación del método <i>cast
+or audit</i> descrito por Benaloh
+[6][7]. Como resultado de este analisis la versión actual de Agora Voting
+utilizada en las votaciones de los Procesos Consituyentes Municipales
+de Podemos <i>sí ofrece verificabilidad cast as intended</i>, habiéndose
+implementado dicho mecanismo <i>cast as intended</i> en el software cliente.</p>
+
+<p>
+Adicionalmente aprovechamos para aclarar
+algunos malentendidos al respecto que se han manifestado
+recientemente. El problema que <i>cast
+as intended</i> intenta resolver no se
+arregla con auditoría del código de Agora Voting responsable de
+cifrar y emitir los votos. Dicho código javascript es efectivamente
+públicamente auditable por votantes y terceros. Cualquiera puede
+<i>verificar</i>
+que dicho código cifra correctamente las opciones elegidas por el
+votante.</p>
+
+<p>
+El problema real deriva de la posibilidad de
+que cualquiera de los elementos que componen el dispositivo cliente
+(incluído el código) esté comprometido o infectado por agentes
+maliciosos. Tanto es así que, aun ejecutando el código javascript
+correcto en el cliente, si existen estos problemas dicha corrección
+es irrelevante. Insistir en la auditabilidad del código javascript
+del cliente (cuando es de hecho auditable) es no entender cual es el
+verdadero problema del dispositivo cliente en cuanto al voto
+electrónico. En general, la forma más ampliamente aceptada de
+atacar un problema de auditoría en voto electrónico es proveer de
+formas de verificación  <i>independientes
+del software </i>a verificar, como es el
+caso del <i>cast or audit</i>.</p>
+<H2 STYLE="line-height: 115%; page-break-before: auto; page-break-after: auto"><A NAME="h.danxtpi66thx"></A>
+
+<h2>Puntos a mejorar</h2>
+
+<p>
+Debemos en este punto remarcar el carácter innovador de estas iniciativas
+de democracia digital. En Agora Voting nos encargamos
+de traer las últimas innovaciones tecnológicas en voto electrónico
+seguro del ámbito académico al mundo real. Por supuesto que innovar
+conlleva ciertos riesgos, pero creemos que el objetivo de la
+democracia digital bien merece afrontarlos.</p>
+
+<h3>Eligible verifiability</h3>
+
+<p>
+Las mayores críticas a las votaciones de
+Podemos se han centrado en la integridad del censo. Para registrarse
+en dicho censo los ciudadanos deben completar un formulario tras lo
+cual les llega un código via SMS que les permite autenticarse en la
+página web. Es desde esta web donde se puede acceder a la cabina de
+votación de Agora Voting para votar.</p>
+
+<p>
+Como sistema de votación independiente, Agora
+Voting no interviene en el proceso de registro ni en la gestión del
+censo de Podemos. Por esta razón, la condición de votante
+autorizado desde el punto de vista de Agora Voting es simplemente el
+figurar en dicho censo. Claro está, desde el punto de vista del
+objetivo y legitimidad de la votación de Podemos las garantías
+deben ir más allá, y es por esta razón por la que muchos critican
+el mecanismo de SMS como insuficiente para lograr las garantías
+necesarias.</p>
+
+<p>
+La identidad digital es un problema complejo de
+infraestructura, de difícil solución si no es por mecanismos
+eficaces con intervención de entidades con muchos recursos,
+normalmente el Estado. En España lamentablemente la población no
+tiene acceso efectivo a un sistema de identidad digital
+suficientemente seguro, extendido y fácil de usar. El DNI
+electrónico lamentablemente no está a la altura, y el certificado
+digital de la FNMT tampoco. Hasta la fecha, este es por tanto un
+problema de difícil solución.</p>
+
+<p>
+La única alternativa es utilizar sistemas con
+menos garantías, como por ejemplo la verificación por SMS de la que
+hablamos anteriormente. Desde Podemos han valorado las distintas
+opciones de verificación de identidad y escogieron buscando un
+equilibrio entre seguridad, coste y facilidad de uso. Además han
+implementado mecanismos de control para detectar registros
+irregulares en su censo. Es reseñable por cierto que quien
+introduzca datos falsos a la hora de afiliarse en un partido político
+podría estar cometiendo una falta o delito. Con todo, es un sistema
+lejos de ser ideal.
+</p>
+
+<p>
+Existen ideas que faltan por explorar en el
+futuro para mejorar la calidad del censo, en concreto un par de
+ellas:
+</p>
+<ul>
+	<li><p>
+	Risk-limiting audit</p>
+</ul>
+
+<p>
+Comprobación estadística de la identidad
+contactando por teléfono a un subconjunto aleatorio de las personas
+censadas. Sobre este tipo de procedimientos ya escribimos una serie
+en el blog de Agora Voting [5].  Tiene por supuesto el coste en
+recursos y dinero relativo a realizar todas estas llamadas, nada
+desdeñable. Además, en la práctica no todo el mundo va a contestar
+al teléfono, y algunos podrían aportar datos erróneos, lo que
+implica un análisis de los resultados más complejo.</p>
+
+<ul>
+	<li><p>
+	Comprobación por correo postal</p>
+</ul>
+
+<p>
+Enviar una tarjeta de coordenadas, por ejemplo
+junto con la publicidad electoral, cumpliría la doble función de
+comprobar el dato de las direcciones postales del censo y establecer
+un procedimiento adicional de identificación a la hora de que la
+persona se autentique. Este método tiene sin embargo un coste
+adicional por ahora inasumible, al implicar el envío de cientos de
+miles de cartas postales.</p>
+
+<p>
+Existen por supuesto otras opciones, pero en
+general todas tienen sus ventajas e inconvenientes, igual que las
+anteriores.</p>
+
+
+<H2>Más información</H2>
+
+<p>
+Lo que hemos explicado aquí es un pequeño
+resumen de la documentación técnica [8], un resumen con
+explicaciones más detalladas y en castellano, para hacerlo más
+asequible para alguien lego en la materia. Para quien quiera tener
+más información sobre el sistema de votación, recomendamos los
+siguientes enlaces:</p>
+<p>
+<A HREF="http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html">http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html</A></p>
+<p>
+<A HREF="https://vota.podemos.info/doc/1226/tech_overview.pdf">https://vota.podemos.info/doc/1226/tech_overview.pdf</A></p>
+<p>
+<A HREF="https://vota.podemos.info/doc/1226/overview.html">https://vota.podemos.info/doc/1226/overview.html</A></p>
+<p>
+<A HREF="https://vota.podemos.info/doc/1226/faqs.html">https://vota.podemos.info/doc/1226/faqs.html</A></p>
+<p>
+<A HREF="http://danigm.net/mixnet.png">http://danigm.net/mixnet.png</A></p>
+
+<H3>Referencias</H3>
+
+<p>
+[1] Steve Kremer, Mark Ryan and Ben Smyth.
+Election verifiability in electronic voting protocols. -
+<A HREF="http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf">http://www.bensmyth.com/files/Smyth10-definition-verifiability.LNCS.pdf</A></p>
+
+<p> [2] Peter Y. A. Ryan, David Bismark, James
+Heather, Steve Schneider, and Zhe Xia. Prêt à Voter: a
+Voter-Verifiable Voting System</p>
+<A HREF="http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf">http://www.computing.surrey.ac.uk/personal/st/J.Heather/research/papers/journal.pdf</A></p>
+
+<p>[3] Krishna Sampigethaya, Radha Poovendran. A
+framework and taxonomy for comparison of electronic voting schemes <A HREF="http://www.ee.washington.edu/research/nsl/papers/JCS-05.pdf">http://www.ee.washington.edu/research/nsl/papers/JCS-05.pdf</A></p>
+
+<p> [4] <A HREF="http://en.wikipedia.org/wiki/End-to-end_auditable_voting_systems">http://en.wikipedia.org/wiki/End-to-end_auditable_voting_systems</A></p>
+
+<p>[5] <A HREF="https://blog.agoravoting.com/index.php/2014/06/22/voter-fraud-and-bayesian-inference-part-3/">https://blog.agoravoting.com/index.php/2014/06/22/voter-fraud-and-bayesian-inference-part-3/
+</A></p>
+
+<p>[6]  Josh Benaloh. Ballot Casting Assurance via
+Voter-Initiated Poll Station Auditing <A HREF="https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdf">https://www.usenix.org/legacy/event/evt07/tech/full_papers/benaloh/benaloh.pdfs
+</A></p>
+
+<p>[7] Ben Adida. Helios: Web-based Open-Audit Voting <A HREF="https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf">https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf</A></p>
+
+<p>[8] Podemos tech overview <A HREF="https://vota.podemos.info/doc/1226/tech_overview.pdf">Podemos tech overview</A></p>
+
+<p>[9] Podemos overview <A HREF="https://vota.podemos.info/doc/1226/overview.html">https://vota.podemos.info/doc/overview.html</A></p>
+
+</BODY>
+</HTML>

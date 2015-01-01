@@ -1,0 +1,167 @@
+[
+{
+  "q":"¿Cómo puedo votar?",
+
+  "a":"<p>En tres sencillos pasos:</p><ol><li><strong>Entra en app Podemos:</strong> Accede a la aplicación movil o web de Podemos, e introduce tu clave de acceso.</li><li><strong>Accede a la cabina de votación:</strong> Una vez hayas entrado en la aplicación de Podemos, te aparecerá un botón de votar, pincha y serás redirigido a la cabina de votación.</li><li><strong>Vota:</strong> Responde a las preguntas de la votación. Antes de emitir tu voto, podrás confirmar la respuestas que has elegido y tendrás oportunidad de modificarlas. Una vez hayas hecho esto, podrás confirmar y emitir tu voto.</li></ol>"
+},
+
+{
+  "q":"¿Quién puede votar?",
+
+  "a":"<p>Se permite votar a toda persona que figure en el censo de simpatizantes de Podemos.</p>"
+},
+
+{
+  "q":"¿Qué necesito para votar?",
+
+  "a":"<p>Necesitas un ordenador con acceso a internet, teléfono móvil (android/iphone) o tablet (android/iOS) que pueda acceder a la app de Podemos. </p>"
+},
+
+{
+  "q":"¿Cuándo comienza y cuándo finaliza la votación?",
+
+  "a":"<p>El periodo de votación comienza a las 9:00 horas del día 26 de diciembre y termina a las 24:00 horas del día 30 de diciembre.</p>"
+},
+
+{
+  "q":"No tengo un dispositivo (smartphone/tablet) móvil, ¿puedo votar?",
+
+  "a":"<p>Si, puedes votar también desde un ordenador con acceso a internet.</p>"
+},
+
+{
+  "q":"¿Qué metodos de autenticación se han habilitado?",
+
+  "a":"<p>Hemos optado por habilitar un único sistema de autenticación. La verificación de identidad se limita a verificar la clave de acceso a la aplicación o web de Podemos, que verifica que dicho usuario esta presente en el censo.</p>"
+},
+
+{
+  "q":"¿Qué se decide en la votación?",
+
+  "a":"<p>La votación elegirá los integrantes de la Secretaría General y el Consejo Ciudadano para cada municipio.</p>"
+},
+
+{
+  "q":"¿Cuál será el sistema de recuento escogido?",
+
+  "a":"<p>Se utilizará mayoria simple para la secretaría y escrutinio mayoritario plurinominal para el consejo.</p>"
+},
+
+{
+  "q":"¿Cuándo se publicarán los resultados?",
+
+  "a":"<p>Los resultados estarán disponibles en menos de 24 horas después de haber cerrado el periodo de votación. El recuento toma un tiempo, puesto que las autoridades de la votación deben realizarlo de forma conjunta, siguiendo un proceso verificable pero costoso computacionalmente, que se detalla más abajo. Por razones técnicas se realizará también un recuento parcial durante el periodo de votación, cuyos resultados no se publicarán. Este recuento parcial permitirá comprobar que el sistema funciona correctamente.</p>"
+},
+
+{
+  "q":"¿Puedo cambiar mi voto?",
+
+  "a":"<p>Si, para cambiar tu voto deberás repetir el proceso de votación. Tu voto nuevo remplazará el voto emitido anteriormente.</p>"
+},
+
+{
+  "q":"¿Puedo votar en blanco?",
+
+  "a":"<p>Si, se podrá votar en blanco.</p>"
+},
+
+{
+  "q":"¿Qué medidas de seguridad se han implementado?",
+
+  "a":"<p>El esquema de seguridad Agora Voting está basado en un \"<a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/Mix_network\">verifiable mixnet\" con cifrado de umbral ElGamal de <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/Public-key_cryptography\">clave pública. Ver más detalles <a target=\"_blank\" href=\"http://www.securitybydefault.com/2011/06/agora-ciudadana-el-parlamento-virtual.html\">aqui. La implementación la proporciona la librería <a target=\"_blank\" href=\"http://www.verificatum.org/\">verificatum.</p>"
+},
+
+{
+  "q":"¿Existen otros sistemas similares?",
+
+  "a":"<p>Dos sistemas conocidos parecidos a Agora Voting, en cuanto a que son sistemas con medidas criptográficas de seguridad, son <a target=\"_blank\" href=\"https://vote.heliosvoting.org/\">Helios Voting y <a target=\"_blank\" href=\"http://www.wombat-voting.com/\">Wombat. Aun siendo un sistema de voto presencial, Wombat utiliza la misma tecnología de mixnet que Agora Voting para la anonimización.</p>"
+},
+
+{
+  "q":"¿En qué otras votaciones se ha utilizado Agora Voting?",
+
+  "a":"<p>Entre otras, Agora Voting se ha utlizado para llevar a cabo las votaciones de la <a target=\"_blank\" href=”http://www.eldiario.es/politica/primarias-dirigira-Podemos-congreso-fundacional_0_267723491.html”>Asamblea Fundacional de Podemos, las <a target=\"_blank\" href=”http://www.eldiario.es/politica/primarias-Podemos-europeas-superan-votos_0_245675520.html”>primarias europeas de Podemos, la iniciativa de <a target=\"_blank\" href=\"http://www.theguardian.com/world/2013/sep/11/joan-baldovi-spain-transparency-bill\">Congreso Transparente en dos votaciones, así como para las <a target=\"_blank\" href=\"http://www.europapress.es/portaltic/internet/noticia-confederacion-pirata-organiza-primarias-elecciones-europeas-traves-internet-20140210164929.html\">primarias de la <a target=\"_blank\" href=\"http://confederacionpirata.org/\">Confederación Pirata.</p>"
+},
+
+{
+  "q":"¿Cómo puedo comprobar que mi voto ha quedado registrado debidamente?",
+
+  "a":"<p>A traves del localizador del voto que el sistema muestra tras votar en la cabina de votación, que debes anotar. Durante la votación
+  puedes comprobar que tu localizador esta presente en el registro a través de la siguiente página XXX.</p>
+
+  <p>Una vez concluída la votación se publicarán los localizadores de todos los votos que han participado en el recuento. Podrás también comprobar que tu localizador esta efectivamente entre ellos. Esta comprobación no solo sirve para verificar que tu voto ha sido registrado, sino que también verifica que ha sido contabilizado en el recuento (ver dos preguntas más abajo).</p>"
+},
+
+{
+  "q":"He buscado mi voto tal y como dice la pregunta anterior y no sale listado ¿por qué?",
+
+  "a":"<p>Seguramente has copiado mal el localizador de tu voto, por favor comprúebalo de nuevo.</p>"
+},
+
+{
+  "q":"¿Cómo puedo comprobar que el recuento de la votación es correcto?",
+
+  "a":"<p>Agora Voting es un sistema universalmente verificable. Esto significa que cualquiera puede revisar el recuento de la votación a partir de los localizadores de los votos y las <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/Zero-knowledge_proof\">demostraciones matemáticas publicadas tras el recuento. Agora Voting proporciona un prodecimiento de verificación para dicho efecto. Este procedimiento, como el resto del sistema, es públicamente auditable. No obstante, la verificación se basa en técnicas criptográficas que, aunque bien establecidas en el ámbito académico, no son fáciles de entender para el ciudadano medio.</p>"
+},
+
+{
+  "q":"¿Es posible averiguar el contenido de mi voto? ¿Cómo puedo saber que no se revelará mi voto?",
+
+  "a":"<p>No, ni siquiera los administradores del sistema pueden averiguarlo. Sólo es posible revelar el contenido de un voto si todas las autoridades conspiran para hacerlo (o si todas son atacadas con éxito, ver más abajo). El secreto del voto permanece seguro con tal de que una sola de estas autoridades no esté corrompida.</p>"
+},
+
+{
+  "q":"¿Cuáles son las autoridades de la votación?",
+
+  "a":"<p>Son dos: OpenKratio y Agora Voting. Puedes ver <a href=\"https://vota.podemos.info/doc/1226/auths.html\">más información sobre las autoridades de votación aquí.</p>"
+},
+
+{
+  "q":"¿Cómo se evita la coacción y la venta de votos?",
+
+  "a":"<p>El problema de la coacción y la venta de votos es un problema sin solucion definitiva tanto para Agora Voting como para votaciones tradicionales basadas en urna y en papel o el voto por correo.</p>"
+},
+
+{
+  "q":"¿Qué pasa si vuestro sistema es hackeado?",
+
+  "a":"<p>En el peor de los casos la votación no se podra completar satisfactoriamente. En ningún caso se podra alterar el recuento, ni comprometer el secreto del voto. (Para esto último el atacante tendría que tomar el control de los sistemas de todas las autoridades)</p>"
+},
+
+{
+  "q":"¿Y si mi ordenador/móvil es hackeado?",
+
+  "a":"<p>El eslabón mas débil de cualquier sistema de voto por Internet es efectivamente el dispositivo cliente mediante el cual se emite el voto. Si tu ordenador/móvil es hackeado es teóricamente posible revelar el contenido de tu voto a terceros. De la misma manera que si tu ordenador/móvil es hackeado es teoricamente posible sustraer información sensible de cualquier tipo (por ejemplo datos bancarios).</p><p>Nos gustaría haber podido habilitar un sistema de cajeros de voto 100% de hardware y software libre y auditado debidamente. No obstante, teniendo en cuenta los recursos de los que disponemos, no podemos más que recomendar seguir buenas prácticas a la hora de asegurar el dispositivo móvil cliente, y asumir la posibilidad real de este vector de ataque.</p>"
+},
+
+{
+  "q":"¿Cómo pueda saber que vuestro sistema funciona correctamente? ¿Dónde esta el código fuente de vuestro sistema? ¿Es Agora Voting software libre?",
+
+  "a":"<p><a target=\"_blank\" href=\"https://agoravoting.com\">Agora Voting es software libre. <a target=\"_blank\" href=\"https://github.com/agoravoting/\">El código es públicamente auditable y accesible por cualquiera. Creemos que un sistema de votación, al ser un componente esencial de un proceso democrático, debe ser desarrollado en comunidad para otorgarle credibilidad, independencia y transparencia, además de permitir mantener la soberanía tecnológica. Si quieres colaborar en el proyecto de Agora Voting eres bienvenido. No hace falta que seas técnico, porque también necesitamos diseñadores, traductores, testers, documentadores, divulgadores, y por supuesto programadores y matemáticos. Te invitamos a que te unas a <a target=\"_blank\" href=\"https://groups.google.com/d/forum/agora-ciudadana-devel\">nuestra lista pública de correo o a <a target=\"_blank\" href=\"https://webchat.freenode.net/?channels=#agoraciudadana\">nuestro canal de IRC en freenode. También, si quieres realizar algún proceso de toma de decisiones con nosotros, puedes <a href=\"mailto:agora@agoravoting.com\">contactarnos.</p>"
+},
+
+{
+  "q":"¿Cómo se asegura que cada votante vota una sóla vez, y que sólo votan las personas con derecho a ello?",
+
+  "a":"<p>Gracias al sistema de autenticación en la app de Podemos se asegura que sólo aquellas personas que figuren en el censo de Podemos pueden votar. Se controla que se efectúe sólo un voto asociado a cada persona en dicho censo.</p>"
+},
+
+{
+  "q":"¿Por qué tarda tanto el recuento?",
+
+
+  "a":"<p>Durante la fase de recuento las autoridades llevan a cabo un proceso de anonimización de los votos cifrados basado en operaciones matemáticas computacionalmente costosas. Este proceso puede llegar a tardar horas, dependiendo del volumen de votos y el numero de preguntas presentes en la papeleta.</p>"
+},
+
+{
+  "q":"¿Dónde puedo encontrar más información técnica acerca de la votación?",
+
+
+  "a":"<p>Puedes ver el esquema general del sistema <a href=\"https://vota.podemos.info/doc/1226/overview.html\" target=\"_blank\">aqui, y un documento con información más técnica en inglés, el <a href=\"https://vota.podemos.info/doc/1226/tech_overview.pdf\" target=\"_blank\">technical overview. También te pueden interesar <a href=\"https://vota.podemos.info/doc/1226/security_overview.html\" target=\"_blank\">Seguridad del voto electrónico en las votaciones de Podemos, y la página de <a href=\"https://vota.podemos.info/doc/1226/security.html\">Contacto de seguridad</p>"
+},
+
+{
+  "q":"Tengo más preguntas",
+
+  "a":"<p>En ese caso, puedes <a href=\"mailto:soportevotaciones@podemos.info\">contactar con nosotros e intentaremos resolver tus dudas, preguntas, o comentarios.</p>"
+}]

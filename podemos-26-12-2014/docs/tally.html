@@ -1,0 +1,176 @@
+<html>
+<head>
+<title>Howto: Recuento verificable de la Votación</title>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://vota.podemos.info/libs/bootstrap-theme.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://vota.podemos.info/libs/base.css" type="text/css" media="all" />
+<script type="text/javascript" src="https://vota.podemos.info/libs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://vota.podemos.info/libs/bootstrap.min.js"></script>
+<script>
+  function getUrlParameter(sParam)
+  {
+      var sPageURL = window.location.search.substring(1);
+      var sURLVariables = sPageURL.split('&');
+      for (var i = 0; i < sURLVariables.length; i++)
+      {
+          var sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] == sParam)
+          {
+              return sParameterName[1];
+          }
+      }
+  }
+
+  $( document ).ready(function() {
+    var electionId = getUrlParameter('electionId');
+    if (typeof electionId != 'undefined') {
+      $( "#tally-link" ).attr("href", "/public/" + electionId + "/tally.tar");
+      $( "#tally-id-text" ).text("(id =" + electionId + ")");
+    }
+    else {
+      document.write("<p>Bad url, missing electionId</p>");
+    }
+  });
+</script>
+</head>
+  <body style="background-color:#ffffff;padding:30pt 140pt 72pt 140pt;text-align: justify;">
+
+<p><a href="https://agoravoting.com"><img style="height: 25px; width: auto" src="https://vota.podemos.info/img/logo_agora.png" alt="Logo Agora Voting" /></a></p>
+
+<h1>Howto: Recuento verificable de las Votaciónes Municipales de Podemos</h1>
+
+<p>En esta página describimos el proceso por el cual se puede verificar que el resultado de la votación es el correcto. Cada votante pueda verificar que su papeleta de voto está incluída en el recuento, y también puede verificar matemáticamente el resultado del recuento.</p><p>
+
+Para realizar dicha verificación es necesario tener suficientes conocimientos técnicos. Si no los tienes, recomendamos que realices este proceso de verificación con la ayuda de alguien que si los tenga. </p><p>
+
+Lo primero que necesitas para verificar el recuento es descargarte el software de “agora-verifier”. Este es el software que realiza las verificaciones pertinentes sobre una votación realizada con Agora Voting. Puedes descargarte agora-verifier ya desde aqui:<p>
+
+<p><a href="https://vota.podemos.info/doc/1226/agora-verifier">agora-verifier</a><span style="font-size:10px"> (sha256sum: 0c0d501ac91f066d07e29843adabed5e1f15d4a88becf14cd242c6a5e8c4688a)</span></p>
+
+<p>o bien puedes <a href="https://github.com/agoravoting/agora-verifier">instalártelo manualmente a partir del código fuente, siguiendo las instrucciones del proyecto en github</a>.</p><p>
+
+agora-verifier ha sido probado en Linux, y requiere de:</p>
+<ul>
+<li>Sistema operativo linux de 64 bits.</li>
+<li>Java v7 o superior instalado.</li>
+<li>uuencode (“sudo apt-get install sharutils” en Debian/Ubuntu).</li>
+</ul>
+
+<p>El fichero que contiene todos los datos de la votación, que nosotros solemos llamar "tally.tar" es el siguiente:</p>
+
+<p><a id="tally-link" href="">Recuento votación</a> <span style="font-size:10px" id="tally-id-text"></span></p>
+
+<p>Para verificar el recuento, puedes simplemente ejecutar:</p>
+
+<p>
+<code>
+ ./agora-verifier tally.tar
+</code>
+</p>
+
+<p>El output de dicha ejecución será algo parecido a esto:</p>
+
+<code>
+./agora-verifier 50460811.tar<br/><br/>
+
+* extracted to /tmp/tmp9c2r5e3jtally<br/>
+* extracted raw tally to /tmp/tmp9c2r5e3jtally/tally-raw-0<br/>
+* running ['./agora-results', '-t', '/tmp/tmp9c2r5e3jtally/0.tar.gz', '-c', '/tmp/tmp9c2r5e3jtally/config.json', '-s', '-o', 'json']<br/>
+* results hash verification OK<br/>
+* processing /tmp/tmp9c2r5e3jtally/tally-raw-0<br/>
+# Results ##########################################<br/>
+total number of votes (including blank/invalid votes): 37<br/>
+Question #1: Secretario General<br/>
+<br/>
+number of options available: 2<br/>
+<br/>
+Raw winning options (position):<br/>
+...<br/>
+<br/>
+<br/>
+####################################################<br/>
+<br/>
+* verifying proofs of knowledge of the plaintexts...<br/>
+* ..finished. Verified 37 votes (0 invalid)<br/>
+* proofs of knowledge of plaintexts OK (0 invalid)<br/>
+* running './pverify.sh .rnd /tmp/tmp9c2r5e3jtally/tally-raw-0'<br/>
+* initializing random source..Successfully initialized random source!<br/>
+* begin proof verification on '/tmp/tmp9c2r5e3jtally/tally-raw-0'<br/>
+* processing /tmp/tmp9c2r5e3jtally/tally-raw-0/0-089b56b3-3ffc-4f91-ace5-eef571162d8c..<br/>
+*<br/>
+* ============ Read and derive common values. ====================<br/>
+* 150101 18:46:10 Read joint public key... * done.<br/>
+* 150101 18:46:11 Read individual El Gamal public keys... * done.<br/>
+* 150101 18:46:11 Verify relation between public keys... * done.<br/>
+* 150101 18:46:11 Read input ciphertexts... * done.<br/>
+* 150101 18:46:11 Derive independent generators... * done.<br/>
+*<br/>
+* ============ Verify shuffle of Party 1. ========================<br/>
+* 150101 18:46:11 Read output of Party 1... * done.<br/>
+* 150101 18:46:11 Verify proof of shuffle... * done.<br/>
+*<br/>
+* ============ Verify shuffle of Party 2. ========================<br/>
+* 150101 18:46:12 Read output of Party 2... * done.<br/>
+* 150101 18:46:12 Verify proof of shuffle... * done.<br/>
+*<br/>
+* ============ Verify decryption of Party 1. =====================<br/>
+* 150101 18:46:12 Read decryption factors... * done.<br/>
+* 150101 18:46:12 Verify decryption proof... * done.<br/>
+*<br/>
+* ============ Verify decryption of Party 2. =====================<br/>
+* 150101 18:46:13 Read decryption factors... * done.<br/>
+* 150101 18:46:13 Verify decryption proof... * done.<br/>
+*<br/>
+* ============ Verify finalization. ==============================<br/>
+* 150101 18:46:13 Decrypt using verified decryption factors... * done.<br/>
+* 150101 18:46:13 Read and verify plaintexts... * done.<br/>
+*<br/>
+* Verification completed SUCCESSFULLY after 0h 0m 4s.<br/>
+* verification is OK<br/>
+* processing question_dir 0-089b56b3-3ffc-4f91-ace5-eef571162d8c<br/>
+* running '/tmp/tmp.J9d7GWUECw/agora-verifier/vmnc.sh .rnd -plain -outi json proofs/PlaintextElements.bt plaintexts_json2'<br/>
+* initializing random source..Successfully initialized random source!<br/>
+* calling mixnet interface with vmnc .rnd  -plain -outi json proofs/PlaintextElements.bt plaintexts_json2..<br/>
+* vmnc call succeeded<br/>
+* plaintexts_json verification OK<br/>
+* running '/tmp/tmp.J9d7GWUECw/agora-verifier/vmnc.sh .rnd -ciphs -ini json ciphertexts_json ciphertexts_raw'<br/>
+* calling mixnet interface with vmnc .rnd  -ciphs -ini json ciphertexts_json ciphertexts_raw..<br/>
+* vmnc call succeeded<br/>
+* ciphertexts_json verification OK<br/>
+<br/>
+</code>
+
+<p></p>
+<p>Lo más importante es que el comando termine diciendo “OK”. Si existen algún fallo, el comando no termina diciendo OK sino FAILED. A continuación listamos los pasos del proceso de verificación. Por razones técnicas el comando no sigue exactamente el mismo orden que mostramos aqui a efectos de mayor claridad:</p>
+<ol>
+<li>Extraer el fichero en un directorio que imprime por pantalla</li><li>
+Mostrar en pantalla someramente los datos más importantes del recuento: el numero total de votos, y la lista de opciones ganadoras (NO ordenadas).</li><li>
+Leer el fichero result_json correspondiente a los resultados del recuento mostrados en el paso anterior y hacerle un hash.</li><li>
+Leer la claves públicas con la que se cifraron los votos (fichero pubkeys_json)</li><li>
+Leer los votos del fichero ciphertexts_json y comprobar que son válidas las pruebas matemáticas de Cero Conocimiento (ZKP) que demuestran que el que emitió el voto cifrado conocía el contenido en texto plano de dicho voto. </li><li>
+El siguiente paso es verificar una serie de elementos de cada pregunta. Cada pregunta se cifra por separado, y por tanto se hace el recuento y algunas verificaciones del mismo por separado:<ol><li>
+Verificar que a partir de los votos del fichero “ciphertexts_json” se obtienen los votos cifrados en formato raw. Se hace un hash de ambos ficheros y se comprueba si es el mismo. Si esta comprobacion falla, el script imprime “ciphertexts_json verification FAILED”.</li><li>
+Leer las pruebas ZKP que matemáticamente demuestran que a partir de los votos cifrados de esta pregunta, el resultado son los votos descifrados en formato raw . Si estas pruebas fallan, el script imprime “verification FAILED”.</li><li>
+Verificar que a partir de los votos descifrados en formato raw, el resultado es el fichero de votos descifrados “plaintexts_json”. Se hace un hash de ambos ficheros y se comprueba si es el mismo. Si esta comprobacion falla, el script imprime “plaintexts_json verification FAILED”.</li>
+</ol><li>
+Leer los ficheros que contienen los votos descifrados, y calcular el resultado de la votación a partir de dichos votos descifrados.</li><li>
+Comparar dicho hash con el hash del result_json que obtuvimos en el paso 3. Si la comparación falla, el script devuelve un “tally verification FAILED”.</li>
+</p>
+<p>Como podéis ver, <strong>se comprueba matemática e unívocamente</strong> que a partir de los votos cifrados, el resultado de la votación es el mencionado. Pero puede surgir una duda ¿de donde salen los votos? ¿y está mi voto ahí incluído?</p><p>
+
+En primer lugar, hemos de decir que el sistema de votación implica que hay que tener una cierta confianza en las organizaciones que están realizando la votación, en particular se asumo que se confía que no han metido votos de más. Esto es una limitación (reflejada en el <a href="https://vota.podemos.info/doc/1226/tech_overview.pdf">tecnical overview</a>, apartado 6.3.3) que deriva del hecho de que los votos no están firmados digitalmente, y no lo están debido a que muy poca gente tiene un certificado digital que pueda utilizar fácilmente en una votación de estas características en España. Es por tanto una limitación externa a Podemos y Agora Voting. En otros países europeos como Estonia por ejemplo, <a href="http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics">el eID parece que sí que tiene un amplio uso y por tanto el 24,3% de los votantes votaron por Internet en las elecciones de 2011</a>.</p><p>
+
+No obstante, si qué se puede verificar matemáticamente que tu voto, el voto que tú emitiste, está incluído en esa lista de votos cifrados, esa lista que hemos verificado que genera el resultado correcto. Para verificar tu voto, debes de haberte guardado el localizador del voto, que no es más que un hash del voto. </p><p>
+
+Este localizador aparece en pantalla al terminar el proceso de voto en la cabina de votación. Si no tienes tu localizador, apréndete que tienes que guardártelo si quieres poder realizar esta comprobación. </p><p>
+
+Para comprobar que tu localizador está incluído en el recuento, simplemente has de ejecutar el mismo comando que antes, agregando como nuevo parámetro el localizador de tu voto:</p>
+
+<code>
+./agora-verifier tally.tar [localizador]
+</code>
+<p></p>
+<p>Los resultados se generan aplicando algunas correcciones, por ejemplo correcciones de paridad de acuerdo con los reglamentos y estatutos aplicables. Todas esas correcciones se listan en el fichero de configuración que hay dentro del tally.tar de cada votación con el que se genera el result_json. También se incluyen en alguna votación correcciones por candidatos cuya candidatura fue por ejemplo retirada. Estas correcciones están listadas por transparencia en el <a href="https://vota.podemos.info/doc/1226/registro_correcciones.tsv">registro de correcciones</a>.
+</body>
+</html>
